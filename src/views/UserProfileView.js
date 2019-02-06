@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import UserProfile from '../components/UserProfile/UserProfile'
-import {logOut} from '../actions'
+import {logOut, updateAdventure} from '../actions'
 
 export class UserProfileView extends Component {
   state={
@@ -38,6 +38,7 @@ render() {
         editingTrip={this.editingTrip}
         doneEditing={this.doneEditing}
         userAdventures={this.props.userAdventures}
+        updateAdventure={this.props.updateAdventure}
         />
       </div>
     )
@@ -51,7 +52,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  logOut
+  logOut,
+  updateAdventure
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileView)

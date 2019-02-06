@@ -11,13 +11,13 @@ export default function Login(props) {
           <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Username
           </label>
-          <input onChange={ e => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="username" placeholder="Username" />
+          <input required onChange={ e => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="username" placeholder="Username" />
         </div>
         <div className="mb-6">
           <label className="text-left block text-grey-darker text-sm font-bold mb-2" htmlFor="password">
             Password
           </label>
-          <input autoComplete="on" onChange={ e => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************" />
+          <input required autoComplete="on" onChange={ e => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************" />
           {/* <p className="text-red text-xs italic">Please choose a password.</p> */}
         </div>
         <div className="flex items-center justify-between">

@@ -77,7 +77,8 @@ class Trip extends React.Component {
 
   submitEditedAdventure = e =>{
     e.preventDefault()
-    this.props.submitEditedAdventure(this.state.trip);
+    this.props.doneEditing()
+    this.props.updateAdventure(this.props.trip.id, this.state.trip);
   }
 
   render(){
@@ -87,12 +88,13 @@ class Trip extends React.Component {
       <div className="hidden z-0 content">
         <div className=" border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         {this.props.isEditingTrip ? 
-              (<i onClick={() => this.props.doneEditing()} className="far fa-check-circle self-end text-xl"></i>)
+              (<i onClick={(e) => this.submitEditedAdventure(e)} className="far fa-check-circle self-end text-xl"></i>)
               :
               (<i onClick={() => this.props.editingTrip()} className="self-end far fa-edit text-xl"></i>)
         }
         {this.props.isEditingTrip ? 
         (<>
+        <form onSubmit={e => this.submitEditedAdventure(e)}>
           <div className="flex">
             <h4 className="mr-2">Title: </h4>
             <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
@@ -123,6 +125,7 @@ class Trip extends React.Component {
           <div className="flex">
             <h4 className="mr-2">Notes: <textarea rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
           </div>
+          </form>
           </>)
           :(
         <>

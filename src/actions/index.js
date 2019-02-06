@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { red } from 'ansi-colors';
 
 export const FETCH_NEWSFEED_START = "FETCH_NEWSFEED_START";
 export const FETCH_NEWSFEED_SUCCESS = "FETCH_NEWSFEED_SUCCESS";
@@ -84,6 +85,8 @@ export const getNewsFeed = () => dispatch =>{
     axios
     .get(`https://guidr2.herokuapp.com/user`)
     .then(res => dispatch({type: FETCH_USERS_SUCCESS, payload: res.data}))
+    .then(localStorage.removeItem('users'))
+    .then(res =>localStorage.setItem('users', JSON.stringify(res.payload)))
     .catch(err => dispatch({type: FETCH_USERS_FAIL, payload: err}))
   }
   // Fetch single User
@@ -95,7 +98,7 @@ export const getNewsFeed = () => dispatch =>{
     .catch(err => dispatch({type: FETCH_USER_FAIL, payload: err}))
   }
 
-  // Fetch Single User Adventure
+  // Fetch Single User Adventures
   export const getUserAdventure = id => dispatch =>{
     dispatch({type: FETCH_USER_ADVENTURE_START});
     axios
@@ -127,7 +130,7 @@ export const getNewsFeed = () => dispatch =>{
   }
 
   //  Update Single User
-  export const updateUser = id => dispatch =>{
+  export const updateUser = (id, ) => dispatch =>{
     dispatch({type: UPDATE_USER_START});
     axios
     .put(`https://guidr2.herokuapp.com/user/${id}`)
@@ -135,10 +138,14 @@ export const getNewsFeed = () => dispatch =>{
 
 
 // Update Single Adventure 
-export const updateAdvenutre = adventure => dispatch =>{
+export const updateAdventure = (id, adventure) => dispatch =>{
+  console.log(id)
+  console.log(adventure)
   dispatch({type: UPDATE_ADVENTURE_START});
   axios
-  .put('')
+  .put(`https://guidr2.herokuapp.com/adventures/${id}`, adventure)
+  .then(res => dispatch({type: UPDATE_ADVENTURE_SUCCESS, payload: res.data}))
+  .catch(err => dispatch({type: UPDATE_ADVENTURE_FAIL, payload: err}))
 }
 
 

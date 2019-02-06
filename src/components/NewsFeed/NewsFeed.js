@@ -4,7 +4,6 @@ import TripCard from './TripCard'
 import Logo from '../../imgs/adventure-title.png'
 
 export default function NewsFeed(props) {
-  console.log(props.users)
   return (
     <div>
       <header className="w-full">

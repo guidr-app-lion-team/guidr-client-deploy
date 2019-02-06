@@ -28,12 +28,13 @@ import TripList from './TripList'
       bio: this.props.user.bio,
     
     } })
+    this.randomProfileImg()
   }
   randomProfileImg=() =>{
   const myPix = Array(ProImg1, ProImg2, ProImg3, ProImg4)
    const val =  Math.floor(Math.random() * 4) + 0 
    console.log(myPix[val])
-   return myPix[val]
+   localStorage.setItem('proImg', JSON.stringify(myPix[val]))
   }
    handleChanges = e =>{
     console.log(e.target.value)
@@ -60,7 +61,7 @@ import TripList from './TripList'
         </nav>
         <div className="flex h-pro-header items-center">
           <div className="w-1/2 flex px-4 flex-col justify-center items-center h-pro-image">
-            <img className="rounded-lg rounded border border-8 border-white" src={this.randomProfileImg()} alt="" />
+            <img className="rounded-lg rounded border border-8 border-white" src={JSON.parse(localStorage.getItem('proImg'))} alt="" />
           </div>
           <div className="w-1/2 px-4 flex items-center">
             <div className="bg-white w-4/5 rounded  p-4 flex flex-col justify-between leading-normal">
@@ -115,7 +116,8 @@ import TripList from './TripList'
 
       </div>
       <div>
-        <TripList 
+        <TripList
+        updateAdventure={this.props.updateAdventure}
         user={this.props.user}
         userAdventures={this.props.userAdventures}
         doneEditing={this.props.doneEditing}

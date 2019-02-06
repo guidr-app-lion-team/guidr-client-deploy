@@ -20,21 +20,21 @@ export default function Register(props) {
               {/* <label className="text-left block text-grey-darker text-sm font-bold mb-2" htmlFor="text">
                 Email
             </label> */}
-              <input onChange={(e) => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" id="email" type="email" name="email" placeholder="Email" required />
+              <input required onChange={(e) => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" id="email" type="email" name="email" placeholder="Email" />
             </div>
 
             <div className="mb-4 w-4/5 mx-auto">
               {/* <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
                 Password
               </label> */}
-              <input onChange={(e) => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" id="password" type="password" name="password" placeholder="Password" required />
+              <input required onChange={(e) => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" id="password" type="password" name="password" placeholder="Password"  />
             </div>
 
             <div className="mb-4 w-4/5 mx-auto">
               {/* <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
                 Retype Password
               </label> */}
-              <input onChange={(e) => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" id="password2" type="password" name="password2" placeholder="Retype Password" required />
+              <input required onChange={(e) => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" id="password2" type="password" name="password2" placeholder="Retype Password"  />
             </div>
           </div>
 
@@ -67,9 +67,7 @@ export default function Register(props) {
             </div>
           </div>
         </div>
-      </form>
-
-      <div className="flex justify-center mb-3">
+        <div className="flex justify-center mb-3">
         <button onClick={(e) => props.handleSubmit(e)} className="bg-green-dark hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
           Submit
         </button>
@@ -77,6 +75,9 @@ export default function Register(props) {
           Cancel
         </button>
       </div>
+      </form>
+
+     
 
       <p className="text-center text-grey text-xs">
         ©{(new Date()).getFullYear()} Guidr. All rights reserved.

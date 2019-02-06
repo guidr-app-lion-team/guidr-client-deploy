@@ -6,7 +6,7 @@ export default function TripList(props) {
   console.log(props)
   return (
     <div className="w-3/5 mx-auto">
-      <h2 className="mb-4">{props.user.name}'s Adventures</h2>
+      <h2 className="my-4 text-center">{props.user.name}'s Adventures</h2>
       {props.userAdventures.length === 0
       ? 
       (<>
@@ -14,7 +14,13 @@ export default function TripList(props) {
         <Link to={"/addTrip"} >Add some here! </Link>
       </>
       )
-      : (props.userAdventures.map(trip =>  <Trip key={trip.id} doneEditing={props.doneEditing} isEditingTrip={props.isEditingTrip} editingTrip={props.editingTrip}    trip={trip}/>))
+      : (props.userAdventures.map(trip =>  
+      <Trip key={trip.id}
+       doneEditing={props.doneEditing}
+       isEditingTrip={props.isEditingTrip}
+       editingTrip={props.editingTrip}
+       updateAdventure={props.updateAdventure}
+       trip={trip}/>))
     }
     </div>
   )

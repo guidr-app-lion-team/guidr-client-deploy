@@ -16,6 +16,9 @@ import {
   FETCH_USER_ADVENTURE_START,
   FETCH_USER_ADVENTURE_SUCCESS,
   FETCH_USER_ADVENTURE_FAIL,
+  UPDATE_ADVENTURE_FAIL,
+  UPDATE_ADVENTURE_START,
+  UPDATE_ADVENTURE_SUCCESS
 } from '../actions'
 
 
@@ -27,7 +30,7 @@ const initialState = {
     isFetchingAdventures: false,
     adventures: [],
     error: null,
-    users:[],
+    users:JSON.parse(localStorage.getItem('users')),
     user: JSON.parse(localStorage.getItem('user')),
     userAdventures: JSON.parse(localStorage.getItem('userAdventures')),
 }
@@ -144,6 +147,29 @@ export default (state = initialState, { type, payload }) => {
     isFetchingAdventures: false,
     error: payload,
   };
+  case UPDATE_ADVENTURE_START:
+  return{
+    ...state,
+    error: null,
+    isUpdating: true,
+  };
+  case UPDATE_ADVENTURE_SUCCESS:
+  console.log('update payload',payload)
+  const adventures = state.adventures.filter(adventure => adventure.id !== payload.id)
+  console.log('update adventure',adventures)
+  const userAdventures = state.userAdventures.filter(adventure => adventure.id !== payload.id)
+  console.log('update userad',userAdventures)
+  return{
+    ...state,
+    adventures: [
+      ...adventures,
+      payload
+    ],
+    userAdventures: [
+      ...userAdventures,
+      payload
+    ]
+  }
   default:
     return state
   }
