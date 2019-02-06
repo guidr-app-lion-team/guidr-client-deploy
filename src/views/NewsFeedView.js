@@ -12,10 +12,9 @@ export class NewsFeedView extends Component {
      
   }
   
-
   logout = () => {
-    localStorage.removeItem('jwt')
-    this.props.history.push('/Login')
+    // localStorage.removeItem('jwt')
+    this.props.history.push('/')
   }
   render() {
     console.log(this.props.users)

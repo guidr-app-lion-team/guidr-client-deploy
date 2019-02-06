@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Route, Link} from 'react-router'
+import { Route} from 'react-router'
 //Views
-import LandingPageView from './views/LadingPageView'
 import LoginView from './views/LoginView'
 import RegisterView from './views/RegisterView'
 import NewsFeedView from './views/NewsFeedView'
@@ -16,8 +15,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Route exact path="/" component={LandingPageView} /> */}
-        
         <Route exact path="/" component={LoginView} />
         <Route path="/register" component={RegisterView} />
         <Route path="/newsfeed" component={NewsFeedView} />

@@ -13,7 +13,7 @@ export default function UserProfile() {
           <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/newsfeed'}>AdventureFeed</Link>
           <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/addTrip'}>Add Trip</Link>
           {/* <span className="text-green "> | </span> */}
-          <Link className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/login'}>Logout</Link>
+          <Link className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/'}>Logout</Link>
         </nav>
 
         <div className="flex h-pro-header items-center">
@@ -22,7 +22,7 @@ export default function UserProfile() {
           </div>
           
           <div className="w-1/2 px-4 flex items-center">
-            <div class="bg-white w-4/5 rounded  p-4 flex flex-col justify-between leading-normal">
+            <div className="bg-white w-4/5 rounded  p-4 flex flex-col justify-between leading-normal">
             <i className="self-end far fa-edit text-xl"></i>
             <div></div>
               <div className="flex my-2">

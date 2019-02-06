@@ -6,31 +6,31 @@ const AddTrip = props => {
       <form onSubmit={() => console.log(`submitting`)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 className="text-2xl">Add an Adventure!</h1>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Title
           </label>
           <input onChange={e => props.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" placeholder="Name Your Trip ex. Two Day Hike" />
         </div>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Date
           </label>
           <input onChange={e => props.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" type="date" name="date" />
         </div>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Location
           </label>
           <input onChange={e => props.handleChanges(e)}  className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" placeholder="Where'd You Go?" />
         </div>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Duration
           </label>
           <input onChange={e => props.handleChanges(e)}  className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" placeholder="How many Days was your trip?" />
         </div>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Type
           </label>
           <div  className="mb-1"><input onChange={e => props.handleChanges(e)} type="radio" name="adventure_type" value="Back Packing"/><label className="ml-2 ">Back Packing</label></div>
@@ -42,7 +42,7 @@ const AddTrip = props => {
 
         </div>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Professional or Pleasure
           </label>
           <div>
@@ -51,10 +51,10 @@ const AddTrip = props => {
           </div>
         </div>
         <div className="my-4">
-          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" for="username">
+          <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Description/Notes
           </label>
-          <textarea rows="4" onChange={e => props.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" spellcheck='true' placeholder="Any thoughts about your Trip?" />
+          <textarea rows="4" onChange={e => props.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" spellCheck='true' placeholder="Any thoughts about your Trip?" />
         </div>
 
 

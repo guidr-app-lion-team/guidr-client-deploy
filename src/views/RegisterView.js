@@ -4,9 +4,6 @@ import Register from '../components/Register'
 import {addUser} from '../actions'
 
 export class RegisterView extends Component {
-  //   static propTypes = {
-  //     prop: PropTypes
-  //   }
   state = {
   newUser:{
     username: "",
@@ -31,7 +28,7 @@ export class RegisterView extends Component {
       bio: "",
       professional: false
     })
-     this.props.history.push('/login')
+     this.props.history.push('/')
   }
  
 

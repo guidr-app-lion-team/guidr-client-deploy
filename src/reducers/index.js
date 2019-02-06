@@ -5,6 +5,9 @@ import {
   FETCH_USERS_FAIL,
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
+  FETCH_USER_FAIL,
+  FETCH_USER_START,
+  FETCH_USER_SUCCESS,
   ADD_USER_FAIL,
   ADD_USER_START,
   ADD_USER_SUCCESS,
@@ -22,7 +25,7 @@ const initialState = {
     adventures: [],
     error: null,
     users:[],
-    username: '',
+    user: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -63,6 +66,25 @@ export default (state = initialState, { type, payload }) => {
   return{
     ...state,
     isFetchingFeed: false,
+    error: payload,
+  };
+  case FETCH_USERS_START:
+  return{
+    ...state,
+    isFetchingSingleUser: true,
+    error: null 
+  };
+  case FETCH_USERS_SUCCESS:
+  return{
+    ...state,
+    error: null,
+    isFetchingSingleUser: false,
+    user: payload
+  };
+  case FETCH_USERS_FAIL:
+  return{
+    ...state,
+    isFetchingSingleUser: false,
     error: payload,
   };
   case ADD_USER_START:

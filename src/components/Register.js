@@ -5,7 +5,7 @@ export default function Register(props) {
   
   return (
     <div className="w-full mx-auto flex flex-col justify-center h-screen">
-      <form onSubmit={(e) => props.handleSubmit(e)} className="w-4/5 mx-auto bg-white shadow-md px-8 pt-6 mb-4 rounded">
+      <form autoComplete="on" onSubmit={(e) => props.handleSubmit(e)} className="w-4/5 mx-auto bg-white shadow-md px-8 pt-6 mb-4 rounded">
         <h1>Registration</h1>
         <div className="flex justify-around rounded px-8 pt-6 pb-8 mb-4">
           <div className="w-5/6">

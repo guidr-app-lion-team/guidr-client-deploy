@@ -6,7 +6,7 @@ export default function Login(props) {
   return (
     <div className="w-full max-w-xs mx-auto flex flex-col justify-center h-screen ">
     <img src={Logo} alt=""/>
-      <form onSubmit={e => props.submitLogin(e)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit={e => props.loginUserTest(e)} autoComplete="on" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Username
@@ -17,7 +17,7 @@ export default function Login(props) {
           <label className="text-left block text-grey-darker text-sm font-bold mb-2" htmlFor="password">
             Password
           </label>
-          <input onChange={ e => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************" />
+          <input autoComplete="on" onChange={ e => props.handleChange(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************" />
           {/* <p className="text-red text-xs italic">Please choose a password.</p> */}
         </div>
         <div className="flex items-center justify-between">

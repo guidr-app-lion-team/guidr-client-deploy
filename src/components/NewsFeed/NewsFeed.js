@@ -12,7 +12,7 @@ export default function NewsFeed(props) {
         <nav className="w-full flex justify-end h-12 border border-blue items-center">
           <Link className="no-underline mx-2 text-lg text-green-dark hover:text-green-darker" to={'/user/:id'}>Profile</Link>
           {/* <span className="text-green "> | </span> */}
-          <Link onClick={() => props.logout()}className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/login'}>Logout</Link>
+          <Link onClick={() => props.logout()}className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/'}>Logout</Link>
         </nav>
         {/* TITLE */}
         <div className="h-64 flex items-center justify-center feed-bg">
@@ -32,7 +32,7 @@ export default function NewsFeed(props) {
       </div>
       {/* CARDS */}
       <section className="flex flex-wrap justify-around mt-8">
-       {props.adventures.map(item => {return <TripCard user={props.users.find(user=> user.id === item.user_id )} adventure={item} />})}
+       {props.adventures.map(item => {return <TripCard key={item.id} user={props.users.find(user=> user.id === item.user_id )} adventure={item} />})}
         
       </section>
     </div>
