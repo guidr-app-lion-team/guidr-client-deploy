@@ -18,7 +18,7 @@ class App extends Component {
         <Route exact path="/" component={LoginView} />
         <Route path="/register" component={RegisterView} />
         <Route path="/newsfeed" component={NewsFeedView} />
-        <Route path="/user/:id" component={UserProfileView} />
+        <Route path="/user" component={UserProfileView} />
         <Route path="/addTrip" component={AddTripView} />
       </div>
     );

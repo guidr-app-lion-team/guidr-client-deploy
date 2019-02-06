@@ -29,7 +29,7 @@ const initialState = {
     error: null,
     users:[],
     user: JSON.parse(localStorage.getItem('user')),
-    userAdventures: [],
+    userAdventures: JSON.parse(localStorage.getItem('userAdventures')),
 }
 
 export default (state = initialState, { type, payload }) => {

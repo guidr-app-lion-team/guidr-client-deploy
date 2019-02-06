@@ -14,7 +14,7 @@ export default function TripList(props) {
         <Link to={"/addTrip"} >Add some here! </Link>
       </>
       )
-      : (props.userAdventures.map(trip =>  <Trip doneEditing={props.doneEditing} isEditingTrip={props.isEditingTrip} editingTrip={props.editingTrip}    trip={trip}/>))
+      : (props.userAdventures.map(trip =>  <Trip key={trip.id} doneEditing={props.doneEditing} isEditingTrip={props.isEditingTrip} editingTrip={props.editingTrip}    trip={trip}/>))
     }
     </div>
   )

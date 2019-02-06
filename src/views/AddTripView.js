@@ -18,7 +18,20 @@ constructor(props){
       }
   }
 }
-
+clearForm = e =>{
+  e.preventDefault();
+  this.setState({
+    username: "",
+    email: "",
+    password: "",
+    password2: "",
+    name: "",
+    location: "",
+    bio: "",
+    professional: false
+  })
+   this.props.history.push('/user')
+}
 handleChanges = e =>{
   console.log(e.target.value)
   if(e.target.name === 'adventure_type'){
@@ -58,7 +71,11 @@ handleChanges = e =>{
   render() {
     return (
       <div className="py-12 add-trip-bg">
-        <AddTrip handleChanges={this.handleChanges} newTrip={this.state.newTrip}/>
+        <AddTrip 
+        clearForm={this.clearForm}
+        handleChanges={this.handleChanges} 
+        newTrip={this.state.newTrip}
+        />
       </div>
     )
   }

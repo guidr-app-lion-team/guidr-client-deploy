@@ -101,6 +101,7 @@ export const getNewsFeed = () => dispatch =>{
     axios
     .get(`https://guidr2.herokuapp.com/user/${id}/adventures`)
     .then(res => dispatch({type: FETCH_USER_ADVENTURE_SUCCESS, payload: res.data}))
+    .then(res => localStorage.setItem('userAdventures', JSON.stringify(res.payload)))
     .catch(err => dispatch({type: FETCH_USER_ADVENTURE_FAIL, payload: err}))
   }
 

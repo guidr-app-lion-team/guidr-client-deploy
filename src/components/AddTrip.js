@@ -59,9 +59,12 @@ const AddTrip = props => {
 
 
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-around">
           <button className="bg-green-dark hover:bg-green-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
             Submit
+          </button>
+          <button onClick={e=>props.clearForm(e)} className="bg-red-dark hover:bg-red-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Cancel
           </button>
 
         </div>
