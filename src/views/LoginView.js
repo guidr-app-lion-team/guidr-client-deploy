@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Login from '../components/Login'
-import {userLogin, getUsers, getSingleUser} from '../actions'
+import {userLogin, getUsers, getSingleUser, setUser} from '../actions'
 
 export class LoginView extends Component {
   state={
@@ -14,7 +14,7 @@ export class LoginView extends Component {
     e.preventDefault();
     const trueUser = this.props.users.find(user=> user.username === this.state.userLoggingIn.username);
     if(trueUser){
-      this.submitLogin(trueUser)
+       this.submitLogin(trueUser)
     } else{
       alert('Sorry this user is not registered, please follow this link to do so! ')
     } 
@@ -30,7 +30,7 @@ export class LoginView extends Component {
   submitLogin = user =>{
     // console.log(this.state.userLoggingIn.username)
     // this.props.userLogin(this.state.userLoggingIn.username)
-    this.props.getSingleUser(user.id)
+    this.props.setUser(user)
     this.props.error ? alert(this.props.error) : this.props.history.push('/newsfeed');
   }
   render() {
@@ -57,7 +57,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   userLogin,
   getUsers,
-  getSingleUser
+  getSingleUser,
+  setUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginView)

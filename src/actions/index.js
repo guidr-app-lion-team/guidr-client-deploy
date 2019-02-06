@@ -22,6 +22,8 @@ export const USER_LOGIN_START = "USER_LOGIN_START";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL"; 
 
+export const SET_USER ="SET_USER"
+export const LOGGING_OUT="LOGGING_OUT"
 
 export const userLogin = user => dispatch =>{
   dispatch({type: USER_LOGIN_START});
@@ -75,7 +77,9 @@ export const getNewsFeed = () => dispatch =>{
     .catch(err => dispatch({type: FETCH_USER_FAIL, payload: err}))
   }
 
-  
+  export const setUser = user => dispatch =>{
+    dispatch ({type: SET_USER, payload: user})
+  }
 
   export const addUser = user => dispatch =>{
     console.log(user)
@@ -86,6 +90,14 @@ export const getNewsFeed = () => dispatch =>{
     .then(res => dispatch({ type: ADD_USER_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: ADD_USER_FAIL, payload: err}))
   }
+
+export const logOut = () => dispatch =>{
+  dispatch({type: LOGGING_OUT});
+}
+
+
+
+
   // addUser = (user) => {
   //   const token = localStorage.getItem('token')
   //   const headers = { headers: { 'Authorization': `Token ${token}` } }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NewsFeed from '../components/NewsFeed/NewsFeed'
-import {getNewsFeed, getUsers} from '../actions';
+import {getNewsFeed, getUsers, logOut} from '../actions';
 
 export class NewsFeedView extends Component {
   //   static propTypes = {
@@ -13,7 +13,7 @@ export class NewsFeedView extends Component {
   }
   
   logout = () => {
-    // localStorage.removeItem('jwt')
+    this.props.logOut()
     this.props.history.push('/')
   }
   render() {
@@ -40,7 +40,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getNewsFeed,
-  getUsers
+  getUsers,
+  logOut
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeedView)

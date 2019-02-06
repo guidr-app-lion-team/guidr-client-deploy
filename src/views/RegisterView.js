@@ -30,9 +30,6 @@ export class RegisterView extends Component {
     })
      this.props.history.push('/')
   }
- 
-
-
   handleSubmit = (e) => {
     const newUserLocal = {
       username: this.state.newUser.username,
@@ -54,7 +51,6 @@ export class RegisterView extends Component {
       alert("You're passwords don't match.")
     }
   }
-
   handleChange = (e) => {
     console.log(e.target.name, e.target.value)
     if (e.target.name === "professional") {
