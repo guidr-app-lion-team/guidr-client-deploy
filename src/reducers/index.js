@@ -28,7 +28,7 @@ const initialState = {
     adventures: [],
     error: null,
     users:[],
-    user: [],
+    user: JSON.parse(localStorage.getItem('user')),
     userAdventures: [],
 }
 

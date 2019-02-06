@@ -17,9 +17,11 @@ export class LoginView extends Component {
   loginUserTest = (e) =>{
     e.preventDefault();
     const trueUser = this.props.users.find(user=> user.username === this.state.userLoggingIn.username);
+
     if(trueUser){
        this.submitLogin(trueUser)
        this.props.getUserAdventure(trueUser.id)
+       localStorage.setItem('user', JSON.stringify(trueUser))
     } else{
       alert('Sorry this user is not registered, please follow this link to do so! ')
     } 

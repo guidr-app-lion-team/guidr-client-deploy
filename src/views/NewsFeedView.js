@@ -13,6 +13,7 @@ export class NewsFeedView extends Component {
   }
   
   logout = () => {
+    localStorage.clear();
     this.props.logOut()
     this.props.history.push('/')
   }

@@ -22,10 +22,10 @@ export class UserProfileView extends Component {
     this.setState({isEditingProfile: false, isEditingTrip:false }) 
   }
   logout = () => {
-      this.props.logOut()
-      this.props.history.push('/')
+    localStorage.clear();
+    this.props.logOut()
+    this.props.history.push('/')
   }
-
 render() {
     return (
       <div>
