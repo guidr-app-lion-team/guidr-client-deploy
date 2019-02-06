@@ -80,6 +80,9 @@ class Trip extends React.Component {
     this.props.doneEditing()
     this.props.updateAdventure(this.props.trip.id, this.state.trip);
   }
+  deleteAdventure = () =>{
+    this.props.deleteTrip(this.props.trip.id)
+  }
 
   render(){
   return (
@@ -90,7 +93,9 @@ class Trip extends React.Component {
         {this.props.isEditingTrip ? 
               (<i onClick={(e) => this.submitEditedAdventure(e)} className="far fa-check-circle self-end text-xl"></i>)
               :
-              (<i onClick={() => this.props.editingTrip()} className="self-end far fa-edit text-xl"></i>)
+              (<div className="flex w-full justify-end"><i onClick={() => this.props.editingTrip()} className="self-end far fa-edit text-xl"></i>
+              <i onClick={()=> this.deleteAdventure()}className="self-end far fa-trash-alt text-xl"></i> </div>
+              )
         }
         {this.props.isEditingTrip ? 
         (<>

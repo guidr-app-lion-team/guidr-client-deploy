@@ -35,7 +35,8 @@ export const UPDATE_ADVENTURE_FAIL = "UPDATE_ADVENTURE_FAIL";
 
 
 
-
+export const DELETING_ADVENTURE_START ="DELETING_ADVENTURE_START"
+export const DELETING_ADVENTURE_SUCCESS ="DELETING_ADVENTURE_SUCCESS"
 
 export const SET_USER ="SET_USER"
 export const LOGGING_OUT="LOGGING_OUT"
@@ -148,8 +149,20 @@ export const updateAdventure = (id, adventure) => dispatch =>{
   .catch(err => dispatch({type: UPDATE_ADVENTURE_FAIL, payload: err}))
 }
 
-
-
+// Delete ADventure
+export const deleteTrip = (id) => dispatch => {
+  dispatch({type: DELETING_ADVENTURE_START});
+  axios
+  .delete(`https://guidr2.herokuapp.com/adventures/${id}`)
+  .then( res => {
+    if (res.status === 200 && res.data) {
+    dispatch({type: DELETING_ADVENTURE_SUCCESS, payload: id})
+  } else {
+    throw new Error();
+  }
+})
+  .catch(err => console.log(err))
+}
 
 
   // addUser = (user) => {

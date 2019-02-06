@@ -18,7 +18,9 @@ import {
   FETCH_USER_ADVENTURE_FAIL,
   UPDATE_ADVENTURE_FAIL,
   UPDATE_ADVENTURE_START,
-  UPDATE_ADVENTURE_SUCCESS
+  UPDATE_ADVENTURE_SUCCESS,
+  DELETING_ADVENTURE_START,
+  DELETING_ADVENTURE_SUCCESS
 } from '../actions'
 
 
@@ -170,6 +172,27 @@ export default (state = initialState, { type, payload }) => {
       payload
     ]
   }
+  case DELETING_ADVENTURE_START:
+  return{
+    ...state,
+    error: null,
+    isDeleting: true
+  };
+  case DELETING_ADVENTURE_SUCCESS:
+  console.log(payload)
+  const deleteAdventure = state.adventures.filter(adventure => adventure.id !== payload)
+  const userdeleteAdventure = state.userAdventures.filter(adventure => adventure.id !== payload)
+  return{
+    ...state,
+    adventures: [
+      ...deleteAdventure,
+      
+    ],
+    userAdventures: [
+      ...userdeleteAdventure,
+      
+    ]
+  };
   default:
     return state
   }

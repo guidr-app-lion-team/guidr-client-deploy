@@ -122,7 +122,8 @@ import TripList from './TripList'
         userAdventures={this.props.userAdventures}
         doneEditing={this.props.doneEditing}
         isEditingTrip={this.props.isEditingTrip}
-        editingTrip={this.props.editingTrip}        
+        editingTrip={this.props.editingTrip}  
+        deleteTrip = {this.props.deleteTrip}
       />
       </div>
     </>

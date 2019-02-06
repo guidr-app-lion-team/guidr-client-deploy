@@ -20,7 +20,9 @@ export default function TripList(props) {
        isEditingTrip={props.isEditingTrip}
        editingTrip={props.editingTrip}
        updateAdventure={props.updateAdventure}
-       trip={trip}/>))
+       trip={trip}
+       deleteTrip={props.deleteTrip}
+       />))
     }
     </div>
   )
