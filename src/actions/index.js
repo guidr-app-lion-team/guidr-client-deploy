@@ -28,10 +28,18 @@ export const UPDATE_USER_START = "UPDATE_USER_START";
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAIL = "UPDATE_USER_FAIL"; 
 
+export const UPDATE_ADVENTURE_START = "UPDATE_ADVENTURE_START";
+export const UPDATE_ADVENTURE_SUCCESS = "UPDATE_ADVENTURE_SUCCESS";
+export const UPDATE_ADVENTURE_FAIL = "UPDATE_ADVENTURE_FAIL"; 
+
+
+
+
 
 export const SET_USER ="SET_USER"
 export const LOGGING_OUT="LOGGING_OUT"
 
+//User Login
 export const userLogin = user => dispatch =>{
   dispatch({type: USER_LOGIN_START});
   axios
@@ -48,6 +56,7 @@ export const userLogin = user => dispatch =>{
   .catch(err => console.log(err))
   
 }
+//Get alll adventures for newsfeed 
 export const getNewsFeed = () => dispatch =>{
   dispatch({type: FETCH_NEWSFEED_START});
   axios
@@ -55,6 +64,7 @@ export const getNewsFeed = () => dispatch =>{
   .then(res =>  dispatch({type: FETCH_NEWSFEED_SUCCESS, payload: res.data}))
   .catch(err => dispatch({type: FETCH_NEWSFEED_FAIL, payload: err}))
 }
+//Authorizatrion News Feed
 // export const getNewsFeed = () => dispatch =>{
 //     const token = localStorage.getItem('jwt')
 //     console.log(token)
@@ -68,7 +78,7 @@ export const getNewsFeed = () => dispatch =>{
 //       .catch(err => console.log(err))
 //     }
 //   }
-
+// Get All Users
   export const getUsers = () => dispatch =>{
     dispatch({type: FETCH_USERS_START});
     axios
@@ -76,6 +86,7 @@ export const getNewsFeed = () => dispatch =>{
     .then(res => dispatch({type: FETCH_USERS_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: FETCH_USERS_FAIL, payload: err}))
   }
+  // Fetch single User
   export const getSingleUser = id => dispatch =>{
     dispatch({type: FETCH_USER_START});
     axios
@@ -93,13 +104,16 @@ export const getNewsFeed = () => dispatch =>{
     .catch(err => dispatch({type: FETCH_USER_ADVENTURE_FAIL, payload: err}))
   }
 
+  //Set User on State
   export const setUser = user => dispatch =>{
     dispatch ({type: SET_USER, payload: user})
   }
+  //"Logout" - clear state of logged in user
   export const logOut = () => dispatch =>{
     dispatch({type: LOGGING_OUT});
   }
 
+  //Register User
   export const addUser = user => dispatch =>{
     console.log(user)
     dispatch({type: ADD_USER_START});
@@ -111,6 +125,7 @@ export const getNewsFeed = () => dispatch =>{
     .catch(err => dispatch({type: ADD_USER_FAIL, payload: err}))
   }
 
+  //  Update Single User
   export const updateUser = id => dispatch =>{
     dispatch({type: UPDATE_USER_START});
     axios
@@ -118,6 +133,12 @@ export const getNewsFeed = () => dispatch =>{
   }
 
 
+// Update Single Adventure 
+export const updateAdvenutre = adventure => dispatch =>{
+  dispatch({type: UPDATE_ADVENTURE_START});
+  axios
+  .put('')
+}
 
 
 

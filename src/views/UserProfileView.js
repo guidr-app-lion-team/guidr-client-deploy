@@ -6,8 +6,10 @@ import {logOut} from '../actions'
 export class UserProfileView extends Component {
   state={
     isEditingProfile: false,
-    isEditingTrip: false
-  }
+    isEditingTrip: false,
+   }
+  
+
   editingPro = () =>{
      console.log("click Pro")
      this.setState({isEditingProfile: true }) 
