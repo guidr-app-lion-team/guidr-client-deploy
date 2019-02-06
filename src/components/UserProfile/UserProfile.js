@@ -26,9 +26,6 @@ export default function UserProfile(props) {
               :
               (<i onClick={() => props.editingPro()} className="self-end far fa-edit text-xl"></i>)
               }
-              
-              
-              
               {props.isEditingProfile ? 
               (
                 <>
@@ -75,7 +72,13 @@ export default function UserProfile(props) {
 
       </div>
       <div>
-        <TripList user={props.user} userAdventures={props.userAdventures}  />
+        <TripList 
+        user={props.user}
+        userAdventures={props.userAdventures}
+        doneEditing={props.doneEditing}
+        isEditingTrip={props.isEditingTrip}
+        editingTrip={props.editingTrip}        
+      />
       </div>
     </>
   )
