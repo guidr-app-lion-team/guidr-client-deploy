@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Register from '../components/Register'
-import {addUser} from '../actions'
+import {addUser, getUsers} from '../actions'
 
 export class RegisterView extends Component {
   state = {
@@ -42,7 +42,6 @@ export class RegisterView extends Component {
     }
     e.preventDefault()
     if (this.state.password === this.state.password2) {
-      
       //send the data via axios
       this.props.addUser(newUserLocal)
       this.props.error ? alert(this.props.error) : this.clearForm(e);
@@ -50,6 +49,7 @@ export class RegisterView extends Component {
     else {
       alert("You're passwords don't match.")
     }
+    this.props.getUsers();
   }
   handleChange = (e) => {
     console.log(e.target.name, e.target.value)
@@ -80,7 +80,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  addUser
+  addUser,
+  getUsers
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterView)

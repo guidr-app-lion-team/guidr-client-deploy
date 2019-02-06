@@ -12,7 +12,10 @@ import {
   USER_LOGIN_START,
   USER_LOGIN_SUCCESS,
   SET_USER,
-  LOGGING_OUT
+  LOGGING_OUT,
+  FETCH_USER_ADVENTURE_START,
+  FETCH_USER_ADVENTURE_SUCCESS,
+  FETCH_USER_ADVENTURE_FAIL,
 } from '../actions'
 
 
@@ -21,10 +24,12 @@ const initialState = {
     isFetchingUsers: false,
     isLoggingIn: false,
     isLoggedIn: false,
+    isFetchingAdventures: false,
     adventures: [],
     error: null,
     users:[],
     user: [],
+    userAdventures: [],
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -70,7 +75,7 @@ export default (state = initialState, { type, payload }) => {
   return{
     ...state,
     error: null,
-    isFetchingFeed: false,
+    isFetchingUsers: false,
     users: payload
   };
   case FETCH_USERS_FAIL:
@@ -120,6 +125,25 @@ export default (state = initialState, { type, payload }) => {
     isLoggedIn: false,
     isLoggingIn: false
   }
+  case FETCH_USER_ADVENTURE_START:
+  return{
+    ...state,
+    isFetchingAdventures: true,
+    error: null 
+  };
+  case FETCH_USER_ADVENTURE_SUCCESS:
+  return{
+    ...state,
+    error: null,
+    isFetchingAdventures: false,
+    userAdventures: payload
+  };
+  case FETCH_USER_ADVENTURE_FAIL:
+  return{
+    ...state,
+    isFetchingAdventures: false,
+    error: payload,
+  };
   default:
     return state
   }

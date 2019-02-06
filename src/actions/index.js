@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 export const FETCH_NEWSFEED_START = "FETCH_NEWSFEED_START";
 export const FETCH_NEWSFEED_SUCCESS = "FETCH_NEWSFEED_SUCCESS";
 export const FETCH_NEWSFEED_FAIL = "FETCH_NEWSFEED_FAIL"; 
@@ -14,6 +12,10 @@ export const FETCH_USER_START = "FETCH_USER_START";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAIL = "FETCH_USER_FAIL"; 
 
+export const FETCH_USER_ADVENTURE_START = "FETCH_USER_ADVENTURE_START";
+export const FETCH_USER_ADVENTURE_SUCCESS = "FETCH_USER_ADVENTURE_SUCCESS";
+export const FETCH_USER_ADVENTURE_FAIL = "FETCH_USER_ADVENTURE_FAIL"; 
+
 export const ADD_USER_START = "ADD_USER_START";
 export const ADD_USER_SUCCESS = "ADD_USER_SUCCESS";
 export const ADD_USER_FAIL = "ADD_USER_FAIL"; 
@@ -21,6 +23,11 @@ export const ADD_USER_FAIL = "ADD_USER_FAIL";
 export const USER_LOGIN_START = "USER_LOGIN_START";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL"; 
+
+export const UPDATE_USER_START = "UPDATE_USER_START";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_FAIL = "UPDATE_USER_FAIL"; 
+
 
 export const SET_USER ="SET_USER"
 export const LOGGING_OUT="LOGGING_OUT"
@@ -77,8 +84,20 @@ export const getNewsFeed = () => dispatch =>{
     .catch(err => dispatch({type: FETCH_USER_FAIL, payload: err}))
   }
 
+  // Fetch Single User Adventure
+  export const getUserAdventure = id => dispatch =>{
+    dispatch({type: FETCH_USER_ADVENTURE_START});
+    axios
+    .get(`https://guidr2.herokuapp.com/user/${id}/adventures`)
+    .then(res => dispatch({type: FETCH_USER_ADVENTURE_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({type: FETCH_USER_ADVENTURE_FAIL, payload: err}))
+  }
+
   export const setUser = user => dispatch =>{
     dispatch ({type: SET_USER, payload: user})
+  }
+  export const logOut = () => dispatch =>{
+    dispatch({type: LOGGING_OUT});
   }
 
   export const addUser = user => dispatch =>{
@@ -88,12 +107,18 @@ export const getNewsFeed = () => dispatch =>{
     .post(`https://guidr2.herokuapp.com/user`, user)
     // .then(res => console.log(res))
     .then(res => dispatch({ type: ADD_USER_SUCCESS, payload: res.data}))
+    .then(dispatch(getUsers()))
     .catch(err => dispatch({type: ADD_USER_FAIL, payload: err}))
   }
 
-export const logOut = () => dispatch =>{
-  dispatch({type: LOGGING_OUT});
-}
+  export const updateUser = id => dispatch =>{
+    dispatch({type: UPDATE_USER_START});
+    axios
+    .put(`https://guidr2.herokuapp.com/user/${id}`)
+  }
+
+
+
 
 
 

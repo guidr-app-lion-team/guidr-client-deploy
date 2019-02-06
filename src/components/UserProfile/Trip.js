@@ -23,35 +23,36 @@ const showDescription = e => {
 
 
 
-export default function Trip() {
+export default function Trip(props) {
+  console.log(props)
   return (
     <div className="w-full ">
-      <button onClick={e => showDescription(e)} className="z-20 relative rounded-sm bg-green-dark text-white collapsible border w-full h-12">Title   &loz;  Date   &loz;   Duration   &loz;   Location</button>
+      <button onClick={e => showDescription(e)} className="z-20 relative rounded-sm bg-green-dark text-white collapsible border w-full h-12">{props.trip.title}   &loz;  {props.trip.date}   &loz;   {props.trip.duration}   &loz;  {props.trip.location} </button>
       <div className="hidden z-0 content">
         <div className=" border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="flex">
             <h4 className="mr-2">Title: </h4>
-            <p> Backyard Hike</p>
+            <p> {props.trip.title}</p>
           </div>
           <div className="flex">
             <h4 className="mr-2">Location: </h4>
-            <p> Appalachian Trail</p>
+            <p> {props.trip.location}</p>
           </div>
           <div className="flex">
             <h4 className="mr-2">Duration: </h4>
-            <p> 2 Nights</p>
+            <p> {props.trip.duration}</p>
           </div>
           <div className="flex">
             <h4 className="mr-2">Type of Trip: </h4>
-            <p> Back Packing</p>
+            <p> {props.trip.adventure_type}</p>
           </div>
           <div className="flex">
             <h4 className="mr-2">Professional or Pleasure: </h4>
-            <p> Pleasure</p>
+            <p> {props.trip.professional ? "Professional" : "Pleasure"}</p>
           </div>
 
           <div className="flex">
-            <h4 className="mr-2">Notes: <span className="font-normal">We didn't go far to experience the great outdoors. Walked 5 miles and camped three nights. Enjoyed meals of hotdogs and marshmellows. Encountered a coyote... how neat! </span></h4>
+            <h4 className="mr-2">Notes: <span className="font-normal">{props.trip.description}</span></h4>
           </div>
         </div>
       </div>

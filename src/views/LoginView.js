@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Login from '../components/Login'
-import {userLogin, getUsers, getSingleUser, setUser} from '../actions'
+import {userLogin,
+        getUsers,
+        getSingleUser,
+        setUser,
+        getUserAdventure} from '../actions'
 
 export class LoginView extends Component {
   state={
@@ -15,14 +19,15 @@ export class LoginView extends Component {
     const trueUser = this.props.users.find(user=> user.username === this.state.userLoggingIn.username);
     if(trueUser){
        this.submitLogin(trueUser)
+       this.props.getUserAdventure(trueUser.id)
     } else{
       alert('Sorry this user is not registered, please follow this link to do so! ')
     } 
   }
-
   componentDidMount(){
     this.props.getUsers();
   }
+  
   handleChange = (e) => {
     console.log(e.target.name, e.target.value)
       this.setState({userLoggingIn:{...this.state.userLoggingIn, [e.target.name]: e.target.value }})
@@ -58,7 +63,8 @@ const mapDispatchToProps = {
   userLogin,
   getUsers,
   getSingleUser,
-  setUser
+  setUser,
+  getUserAdventure
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginView)

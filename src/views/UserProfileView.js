@@ -4,6 +4,18 @@ import UserProfile from '../components/UserProfile/UserProfile'
 import {logOut} from '../actions'
 
 export class UserProfileView extends Component {
+  state={
+    isEditingProfile: false,
+  }
+  editingPro = () =>{
+     console.log("click Pro")
+     this.setState({isEditingProfile: true }) 
+  }
+  doneEditing = () =>{
+    console.log("click Done")
+    this.setState({isEditingProfile: false }) 
+ }
+
 logout = () => {
     this.props.logOut()
     this.props.history.push('/')
@@ -13,7 +25,12 @@ logout = () => {
       <div>
         <UserProfile 
         user={this.props.user}
-        logout={this.logout}/>
+        logout={this.logout}
+        isEditingProfile={this.state.isEditingProfile}
+        editingPro={this.editingPro}
+        doneEditing={this.doneEditing}
+        userAdventures={this.props.userAdventures}
+        />
       </div>
     )
   }
@@ -21,7 +38,8 @@ logout = () => {
 
 const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
-  user: state.user
+  user: state.user,
+  userAdventures: state.userAdventures
 })
 
 const mapDispatchToProps = {
