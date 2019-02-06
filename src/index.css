@@ -1,14 +1,26 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.login-screen{
+  background: url('../src/imgs/Login-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+.add-trip-bg{
+  background: url('../src/imgs/addteam-bg.jpg') no-repeat center center;
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.feed-bg{
+  background: url('../src/imgs/newsfeed-bg.jpg') no-repeat center center;
+  background-size: cover;
 }
+.trip-card{
+  width: 30%;
+}
+
+.h-pro-header{
+  height: 500px;
+  background: url('../src/imgs/addteam-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+.h-pro-image{
+  height: 400px;
+}
+
