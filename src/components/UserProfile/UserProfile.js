@@ -22,6 +22,7 @@ import TripList from './TripList'
         pageUser: '',
         pageUserAdventures: [],
         id: this.props.match.params.id,
+        
      }
    }
   
@@ -54,7 +55,7 @@ import TripList from './TripList'
           ...this.state.pageUser,
           [e.target.name]: e.target.value
         })      
-    
+        
     })
   }
   submitEditedProfile = e =>{
@@ -65,7 +66,17 @@ import TripList from './TripList'
     // this.props.getUsers()
     // this.getUserFromURL();
   }
-
+  componentDidUpdate (prevProps) {
+    if (prevProps.location.key !== this.props.location.key) {
+        this.setState({
+            pageUser:{
+              ...this.props.user
+            }
+        })
+        this.props.getUserAdventure(this.props.user.id)
+    }
+    
+}
 
   render(){
   return (
@@ -73,7 +84,9 @@ import TripList from './TripList'
       <div className="">
         <nav className="w-full bg-green-dark flex justify-end h-12 border  items-center">
           <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/newsfeed'}>AdventureFeed</Link>
-          <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/addTrip'}>Add Trip</Link>
+          {this.state.mainUserPage ? <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/addTrip'}>Add Trip</Link> 
+          : <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={`/user/${this.props.user.id}`}>Profile</Link>}
+          
           {/* <span className="text-green "> | </span> */}
           <Link onClick={e => this.props.logout(e)} className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/'}>Logout</Link>
         </nav>

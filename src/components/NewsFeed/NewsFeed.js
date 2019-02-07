@@ -4,6 +4,7 @@ import TripCard from './TripCard'
 import Logo from '../../imgs/adventure-title.png'
 
 export default function NewsFeed(props) {
+  console.log(props.selected)
   return (
     <div>
       <header className="w-full">
@@ -20,12 +21,12 @@ export default function NewsFeed(props) {
       {/* FILTER BAR */}
       <div className="filter w-full flex justify-center h-12 border border-blue items-center">
         <h4 className="mr-4">Filter Trip Type:</h4>
-        <div onClick={e=>props.changeSelected(e)} className="mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker">All</div>
-        <div onClick={e=>props.changeSelected(e)} className="mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker">Hiking</div>
-        <div onClick={e=>props.changeSelected(e)} className="mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker">Back Packing</div>
-        <div onClick={e=>props.changeSelected(e)} className="mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker">Rock Climbing</div>
-        <div onClick={e=>props.changeSelected(e)}  className="mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker">Cycling</div>
-        <div onClick={e=>props.changeSelected(e)} className="mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker">Scuba Diving</div>
+        <div onClick={e=>props.changeSelected(e)} className={props.selected === 'All' ? 'active active mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer' : " mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer"}>All</div>
+        <div onClick={e=>props.changeSelected(e)} className={props.selected === 'Hiking' ? 'active active mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer' : " mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer"}>Hiking</div>
+        <div onClick={e=>props.changeSelected(e)} className={props.selected === 'Back Packing' ? 'active active mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer' : " mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer"}>Back Packing</div>
+        <div onClick={e=>props.changeSelected(e)} className={props.selected === 'Rock Climbing' ? 'active active mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer' : " mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer"}>Rock Climbing</div>
+        <div onClick={e=>props.changeSelected(e)}  className={props.selected === 'Cycling' ? 'active active mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer' : " mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer"}>Cycling</div>
+        <div onClick={e=>props.changeSelected(e)} className={props.selected === 'Scuba Diving' ? 'active active mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer' : " mx-2 bg-green-dark text-white px-2 py-1 rounded tracking-wide hover:bg-green-darker hover:cursor-pointer"}>Scuba Diving</div>
       </div>
       {/* CARDS */}
       <section className="flex flex-wrap justify-around mt-8">

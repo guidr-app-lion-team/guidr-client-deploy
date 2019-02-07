@@ -43,7 +43,7 @@ export class NewsFeedView extends Component {
         logout={this.logout}
         user={this.props.user}
         changeSelected={ this.changeSelected}
-        // feed= {this.filterCards()}
+        selected={this.state.selected}
         />
       </div>
     )
