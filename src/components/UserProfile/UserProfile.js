@@ -41,7 +41,7 @@ import TripList from './TripList'
     // this.props.getUserAdventure(this.state.pageUser.id)
   }
   randomProfileImg=() =>{
-  const myPix = Array(ProImg1, ProImg2, ProImg3, ProImg4)
+  const myPix = [ProImg1, ProImg2, ProImg3, ProImg4]
    const val =  Math.floor(Math.random() * 4) + 0 
    console.log(myPix[val])
    localStorage.setItem('proImg', JSON.stringify(myPix[val]))

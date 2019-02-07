@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router'
-//Views
+//Views import Friend from './components/NewsFeed/Friend'
 import LoginView from './views/LoginView'
 import RegisterView from './views/RegisterView'
 import NewsFeedView from './views/NewsFeedView'
 import UserProfileView from './views/UserProfileView'
 import AddTripView from './views/AddTripView'
-import Friend from './components/NewsFeed/Friend'
+// import Friend from './components/NewsFeed/Friend'
+
 
 
 class App extends Component {
