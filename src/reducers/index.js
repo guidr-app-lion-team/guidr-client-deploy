@@ -20,7 +20,10 @@ import {
   UPDATE_ADVENTURE_START,
   UPDATE_ADVENTURE_SUCCESS,
   DELETING_ADVENTURE_START,
-  DELETING_ADVENTURE_SUCCESS
+  DELETING_ADVENTURE_SUCCESS,
+  ADD_ADVENTURE_FAIL,
+  ADD_ADVENTURE_START,
+  ADD_ADVENTURE_SUCCESS
 } from '../actions'
 
 
@@ -30,11 +33,12 @@ const initialState = {
     isLoggingIn: false,
     isLoggedIn: false,
     isFetchingAdventures: false,
+    isAddingAdventure: false,
     adventures: [],
     error: null,
     users:JSON.parse(localStorage.getItem('users')),
     user: JSON.parse(localStorage.getItem('user')),
-    userAdventures: JSON.parse(localStorage.getItem('userAdventures')),
+    userAdventures: [],
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -193,6 +197,32 @@ export default (state = initialState, { type, payload }) => {
       
     ]
   };
+  case ADD_ADVENTURE_START:
+  return{
+    ...state,
+    isAddingAdventure: true,
+    error: null
+  };
+  case ADD_ADVENTURE_SUCCESS:
+  return{
+    ...state,
+    adventures: [
+      ...adventures,
+      payload
+    ],
+    userAdventures: [
+      ...userAdventures,
+      payload
+    ],
+    isAddingAdventure: false,
+    error: null,
+  };
+  case ADD_ADVENTURE_FAIL:
+  return{
+    ...state,
+    isAddingAdventure: false,
+    error: payload
+  }
   default:
     return state
   }

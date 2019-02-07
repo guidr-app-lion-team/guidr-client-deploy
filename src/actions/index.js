@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { red } from 'ansi-colors';
+
 
 export const FETCH_NEWSFEED_START = "FETCH_NEWSFEED_START";
 export const FETCH_NEWSFEED_SUCCESS = "FETCH_NEWSFEED_SUCCESS";
@@ -34,6 +34,10 @@ export const UPDATE_ADVENTURE_SUCCESS = "UPDATE_ADVENTURE_SUCCESS";
 export const UPDATE_ADVENTURE_FAIL = "UPDATE_ADVENTURE_FAIL"; 
 
 
+
+export const ADD_ADVENTURE_START ="ADD_ADVENTURE_START"
+export const ADD_ADVENTURE_SUCCESS ="ADD_ADVENTURE_SUCCESS"
+export const ADD_ADVENTURE_FAIL ="ADD_ADVENTURE_FAIL"
 
 export const DELETING_ADVENTURE_START ="DELETING_ADVENTURE_START"
 export const DELETING_ADVENTURE_SUCCESS ="DELETING_ADVENTURE_SUCCESS"
@@ -98,7 +102,6 @@ export const getNewsFeed = () => dispatch =>{
     .then(res => dispatch({type: FETCH_USER_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: FETCH_USER_FAIL, payload: err}))
   }
-
   // Fetch Single User Adventures
   export const getUserAdventure = id => dispatch =>{
     dispatch({type: FETCH_USER_ADVENTURE_START});
@@ -108,7 +111,6 @@ export const getNewsFeed = () => dispatch =>{
     .then(res => localStorage.setItem('userAdventures', JSON.stringify(res.payload)))
     .catch(err => dispatch({type: FETCH_USER_ADVENTURE_FAIL, payload: err}))
   }
-
   //Set User on State
   export const setUser = user => dispatch =>{
     dispatch ({type: SET_USER, payload: user})
@@ -117,7 +119,6 @@ export const getNewsFeed = () => dispatch =>{
   export const logOut = () => dispatch =>{
     dispatch({type: LOGGING_OUT});
   }
-
   //Register User
   export const addUser = user => dispatch =>{
     console.log(user)
@@ -129,54 +130,44 @@ export const getNewsFeed = () => dispatch =>{
     .then(dispatch(getUsers()))
     .catch(err => dispatch({type: ADD_USER_FAIL, payload: err}))
   }
-
   //  Update Single User
   export const updateUser = (id, ) => dispatch =>{
     dispatch({type: UPDATE_USER_START});
     axios
     .put(`https://guidr2.herokuapp.com/user/${id}`)
   }
-
-
 // Update Single Adventure 
-export const updateAdventure = (id, adventure) => dispatch =>{
-  console.log(id)
-  console.log(adventure)
-  dispatch({type: UPDATE_ADVENTURE_START});
-  axios
-  .put(`https://guidr2.herokuapp.com/adventures/${id}`, adventure)
-  .then(res => dispatch({type: UPDATE_ADVENTURE_SUCCESS, payload: res.data}))
-  .catch(err => dispatch({type: UPDATE_ADVENTURE_FAIL, payload: err}))
-}
-
-// Delete ADventure
-export const deleteTrip = (id) => dispatch => {
-  dispatch({type: DELETING_ADVENTURE_START});
-  axios
-  .delete(`https://guidr2.herokuapp.com/adventures/${id}`)
-  .then( res => {
-    if (res.status === 200 && res.data) {
-    dispatch({type: DELETING_ADVENTURE_SUCCESS, payload: id})
-  } else {
-    throw new Error();
+  export const updateAdventure = (id, adventure) => dispatch =>{
+    console.log(id)
+    console.log(adventure)
+    dispatch({type: UPDATE_ADVENTURE_START});
+    axios
+    .put(`https://guidr2.herokuapp.com/adventures/${id}`, adventure)
+    .then(res => dispatch({type: UPDATE_ADVENTURE_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({type: UPDATE_ADVENTURE_FAIL, payload: err}))
   }
-})
-  .catch(err => console.log(err))
+// Delete Adventure
+  export const deleteTrip = (id) => dispatch => {
+    dispatch({type: DELETING_ADVENTURE_START});
+    axios
+    .delete(`https://guidr2.herokuapp.com/adventures/${id}`)
+    .then( res => {
+      if (res.status === 200 && res.data) {
+      dispatch({type: DELETING_ADVENTURE_SUCCESS, payload: id})
+    } else {
+      throw new Error();
+    }
+  })
+    .catch(err => console.log(err))
+  }
+// add Adventure
+export const addAdventure = (adventure) => dispatch => {
+  console.log(adventure)
+  dispatch({type: ADD_ADVENTURE_START});
+  axios
+  .post(`https://guidr2.herokuapp.com/adventures`, adventure)
+  .then( res => dispatch({type: ADD_ADVENTURE_SUCCESS, payload: res}))
+  .catch(err =>  dispatch({type: ADD_ADVENTURE_FAIL, payload: err}))
 }
 
-
-  // addUser = (user) => {
-  //   const token = localStorage.getItem('token')
-  //   const headers = { headers: { 'Authorization': `Token ${token}` } }
-  //   axios.post('http://127.0.0.1:8000/api/countries/', newCountry, headers)
-  //     .then(resp => this.getData())
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     })
-  // }
-
-
-  // export const getSingleUser = user => dispatch =>{
-  //   dispatch({type: FETCH_SINGLE_USER_START});
-  //   axios.
-  // }
+  // dispatch({type: ADD_ADVENTURE_SUCCESS, payload: id})

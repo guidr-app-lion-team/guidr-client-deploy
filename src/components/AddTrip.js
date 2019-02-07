@@ -3,7 +3,7 @@ import React from 'react'
 const AddTrip = props => {
   return (
     <div className="w-2/5 my-8 mx-auto flex flex-col justify-center h-screen">
-      <form onSubmit={() => console.log(`submitting`)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit={e => props.submitAdventure(e)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 className="text-2xl">Add an Adventure!</h1>
         <div className="my-4">
           <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
@@ -60,7 +60,7 @@ const AddTrip = props => {
 
 
         <div className="flex items-center justify-around">
-          <button className="bg-green-dark hover:bg-green-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <button className="bg-green-dark hover:bg-green-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Submit
           </button>
           <button onClick={e=>props.clearForm(e)} className="bg-red-dark hover:bg-red-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">

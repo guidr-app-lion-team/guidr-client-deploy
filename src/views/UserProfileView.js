@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import UserProfile from '../components/UserProfile/UserProfile'
-import {logOut, updateAdventure, deleteTrip} from '../actions'
+import {logOut, 
+        updateAdventure, 
+        getNewsFeed,
+        deleteTrip} from '../actions'
 
 export class UserProfileView extends Component {
   state={
     isEditingProfile: false,
     isEditingTrip: false,
    }
-  
+   componentDidUpdate() {
+    // setTimeout(this.getNewsFeed, 5000)
+   }
 
   editingPro = () =>{
      console.log("click Pro")
@@ -26,6 +31,7 @@ export class UserProfileView extends Component {
     this.props.logOut()
     this.props.history.push('/')
   }
+  
 render() {
     return (
       <div>
@@ -55,7 +61,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   logOut,
   updateAdventure,
-  deleteTrip
+  deleteTrip,
+  getNewsFeed
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileView)
