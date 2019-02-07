@@ -19,6 +19,9 @@ import {
   UPDATE_ADVENTURE_FAIL,
   UPDATE_ADVENTURE_START,
   UPDATE_ADVENTURE_SUCCESS,
+  UPDATE_USER_FAIL,
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS,
   DELETING_ADVENTURE_START,
   DELETING_ADVENTURE_SUCCESS,
   ADD_ADVENTURE_FAIL,
@@ -34,6 +37,8 @@ const initialState = {
     isLoggedIn: false,
     isFetchingAdventures: false,
     isAddingAdventure: false,
+    isUpdatingUser: false,
+    isUpdating: false,
     adventures: [],
     error: null,
     users:JSON.parse(localStorage.getItem('users')),
@@ -176,6 +181,12 @@ export default (state = initialState, { type, payload }) => {
       payload
     ]
   }
+  case UPDATE_ADVENTURE_FAIL:
+  return{
+    ...state,
+    error: payload,
+    isUpdating: false
+  }
   case DELETING_ADVENTURE_START:
   return{
     ...state,
@@ -223,31 +234,31 @@ export default (state = initialState, { type, payload }) => {
     isAddingAdventure: false,
     error: payload
   }
+  case UPDATE_USER_START:
+  return{
+    ...state,
+    error: null,
+    isUpdatingUser: true,
+  };
+  case UPDATE_USER_SUCCESS:
+  console.log('update user payload',payload)
+  const users = state.users.filter(user => user.id !== payload.id)
+  
+  return{
+    ...state,
+    users: [
+      ...users,
+      payload
+    ],
+    user: payload
+  };
+  case UPDATE_USER_FAIL:
+  return{
+    ...state,
+    error: payload,
+    isUpdatingUser: false
+  }
   default:
     return state
   }
 }
-
-
-// FETCH_USER_FAIL,
-// FETCH_USER_START,
-// FETCH_USER_SUCCESS,
-// case FETCH_USERS_START:
-// return{
-//   ...state,
-//   isFetchingSingleUser: true,
-//   error: null 
-// };
-// case FETCH_USERS_SUCCESS:
-// return{
-//   ...state,
-//   error: null,
-//   isFetchingSingleUser: false,
-//   user: payload
-// };
-// case FETCH_USERS_FAIL:
-// return{
-//   ...state,
-//   isFetchingSingleUser: false,
-//   error: payload,
-// };

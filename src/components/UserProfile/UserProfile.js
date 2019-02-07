@@ -46,20 +46,28 @@ import TripList from './TripList'
    console.log(myPix[val])
    localStorage.setItem('proImg', JSON.stringify(myPix[val]))
   }
-   handleChanges = e =>{
+  handleChanges = e =>{
     console.log(e.target.value)
     console.log(e.target.name)
-    this.setState({
-        profile:({
-          ...this.state.profile,
+      this.setState({
+        pageUser:({
+          ...this.state.pageUser,
           [e.target.name]: e.target.value
-        })
-          
-      })
-    }
+        })      
+    
+    })
+  }
+  submitEditedProfile = e =>{
+    e.preventDefault()
+    this.props.doneEditing()
+    this.props.updateUser(this.state.pageUser.id, this.state.pageUser);
+    this.props.getUserAdventure(this.state.pageUser.id)
+    // this.props.getUsers()
+    // this.getUserFromURL();
+  }
 
-   render(){
 
+  render(){
   return (
     <>
       <div className="">
@@ -77,7 +85,7 @@ import TripList from './TripList'
             <div className="bg-white w-4/5 rounded  p-4 flex flex-col justify-between leading-normal">
             {this.state.mainUserPage ? 
               this.props.isEditingProfile ? 
-              (<i onClick={() => this.props.doneEditing()} className="far fa-check-circle self-end text-xl"></i>)
+              (<i onClick={e => this.submitEditedProfile(e)} className="far fa-check-circle self-end text-xl"></i>)
               :
               (<i onClick={() => this.props.editingPro()} className="self-end far fa-edit text-xl"></i>)
               : null 
@@ -88,18 +96,18 @@ import TripList from './TripList'
                 <>
               <div className="flex my-2">
                 <h4 className="mr-2">Name: </h4>
-                <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="name" placeholder="John Doe" value={this.state.profile.name}/>
+                <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="name" placeholder="John Doe" value={this.state.pageUser.name}/>
               </div>
               <div className="flex my-2">
                 <h4 className="mr-2">Email: </h4>
-                <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="email" placeholder="JDizzie@hotmail.com" value={this.state.profile.email}/>
+                <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="email" placeholder="JDizzie@hotmail.com" value={this.state.pageUser.email}/>
               </div>
               <div className="flex my-2">
                 <h4 className="mr-2">Location: </h4>
-                <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" placeholder="Not Here" value={this.state.profile.location}/>
+                <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" placeholder="Not Here" value={this.state.pageUser.location}/>
               </div>
               <div className="flex my-2">
-                <h4 className="mr-2">Bio: <textarea rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" value={this.state.profile.bio} name="bio" spellCheck='true' placeholder="John Doe, he's a really cool dancer" /></h4>
+                <h4 className="mr-2">Bio: <textarea rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" value={this.state.pageUser.bio} name="bio" spellCheck='true' placeholder="John Doe, he's a really cool dancer" /></h4>
               </div>
               </>
               )              

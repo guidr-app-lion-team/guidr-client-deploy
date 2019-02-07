@@ -70,20 +70,7 @@ export const getNewsFeed = () => dispatch =>{
   .then(res =>  dispatch({type: FETCH_NEWSFEED_SUCCESS, payload: res.data}))
   .catch(err => dispatch({type: FETCH_NEWSFEED_FAIL, payload: err}))
 }
-//Authorizatrion News Feed
-// export const getNewsFeed = () => dispatch =>{
-//     const token = localStorage.getItem('jwt')
-//     console.log(token)
-//     const headers = { headers: { Authorization: token } }
-//     console.log(headers)
-//     // dispatch({type: FETCH_NEWSFEED_START});
-//     if(token){
-//       console.log('we are fetching our ventures')
-//       axios.get(`https://guidr2.herokuapp.com/adventures`, headers)
-//       .then(res => console.log(res))
-//       .catch(err => console.log(err))
-//     }
-//   }
+
 // Get All Users
   export const getUsers = () => dispatch =>{
     dispatch({type: FETCH_USERS_START});
@@ -130,12 +117,6 @@ export const getNewsFeed = () => dispatch =>{
     .then(dispatch(getUsers()))
     .catch(err => dispatch({type: ADD_USER_FAIL, payload: err}))
   }
-  //  Update Single User
-  export const updateUser = (id, ) => dispatch =>{
-    dispatch({type: UPDATE_USER_START});
-    axios
-    .put(`https://guidr2.herokuapp.com/user/${id}`)
-  }
 // Update Single Adventure 
   export const updateAdventure = (id, adventure) => dispatch =>{
     console.log(id)
@@ -169,5 +150,13 @@ export const addAdventure = (adventure) => dispatch => {
   .then( res => dispatch({type: ADD_ADVENTURE_SUCCESS, payload: res.data}))
   .catch(err =>  dispatch({type: ADD_ADVENTURE_FAIL, payload: err}))
 }
-
-  // dispatch({type: ADD_ADVENTURE_SUCCESS, payload: id})
+// Update Single User
+export const updateUser = (id, user) => dispatch =>{
+  console.log(id)
+  console.log(user)
+  dispatch({type: UPDATE_USER_START});
+  axios
+  .put(`https://guidr2.herokuapp.com/user/${id}`, user)
+  .then(res => dispatch({type: UPDATE_USER_SUCCESS, payload: res.data}))
+  .catch(err => console.log(err))
+}

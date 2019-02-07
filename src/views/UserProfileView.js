@@ -5,7 +5,9 @@ import {logOut,
         updateAdventure, 
         getNewsFeed,
         getUserAdventure,
-        deleteTrip} from '../actions'
+        deleteTrip,
+        updateUser,
+        getUsers} from '../actions'
 
 export class UserProfileView extends Component {
   state={
@@ -63,6 +65,7 @@ const mapStateToProps = (state) => ({
   user: state.user,
   users: state.users,
   userAdventures: state.userAdventures
+  
 })
 
 const mapDispatchToProps = {
@@ -70,7 +73,9 @@ const mapDispatchToProps = {
   updateAdventure,
   deleteTrip,
   getNewsFeed,
-  getUserAdventure
+  getUserAdventure,
+  updateUser,
+  getUsers
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileView)
