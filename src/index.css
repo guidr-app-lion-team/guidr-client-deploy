@@ -33,3 +33,20 @@
   height: 400px;
 }
 
+.registrationScreen{
+  background: url('../src/imgs/Login-bg.jpg') no-repeat center center;
+  background-size: cover;
+  background-color: rgba(96, 111, 123, 0.3); 
+}
+.registerForm{
+  font-family: 'Butterfly Kids', cursive;
+  font-size: 2rem;
+  background-color: #1f9d55;
+  background-image: linear-gradient(45deg, #1f9d55 10%, #1a4731 40%, #1f9d55 90%);
+}
+.registerText{
+  font-family: 'Amatic SC';
+  font-size: '1.5rem';
+  color: 'yellow';
+}
+

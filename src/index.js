@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from "react-router-dom";
+import WebFont from 'webfontloader'
+import { BrowserRouter as Router } from "react-router-dom";
 // CSS Stylings
 import './index.css';
 import App from './App';
@@ -19,11 +20,17 @@ const store = createStore(
 );
 
 
+WebFont.load({
+  google: {
+    families: ['Amatic SC', 'Butterfly Kids']
+  }
+});
+
 
 ReactDOM.render(
-<Provider store={store}>
+  <Provider store={store}>
     <Router>
-    <App />
+      <App />
     </Router>
-</Provider>,
- document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root'));
