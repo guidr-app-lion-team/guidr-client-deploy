@@ -78,9 +78,9 @@ class AuthLogin extends Component {
          
 
 
-<form onSubmit={this.submitHandler} autoComplete="on" className="bg-white z-10 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<form onSubmit={this.submitHandler} autoComplete="on" className="bg-green-darker z-10 shadow-md rounded px-8 pt-6 pb-8 mb-4">
 <div className="mb-4">
-  <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
+  <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
     Username
   </label>
   <input 
@@ -93,7 +93,7 @@ class AuthLogin extends Component {
     />
 </div>
 <div className="mb-6">
-  <label className="text-left block text-grey-darker text-sm font-bold mb-2" htmlFor="password">
+  <label className="text-left block text-white text-sm font-bold mb-2" htmlFor="password">
     Password
   </label>
   <input
@@ -106,10 +106,10 @@ class AuthLogin extends Component {
    onChange={this.inputHandler} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="******************" />
 </div>
 <div className="flex items-center justify-between">
-  <button className="bg-green-dark hover:bg-green-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+  <button className="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
     Sign In
   </button>
-  <Link to={"/register"} className="inline-block align-baseline font-bold text-sm text-green-dark hover:text-green-darker" href="#">
+  <Link to={"/register"} className="inline-block align-baseline font-bold text-sm text-white no-underline hover:underline" href="#">
     Need to Register?
   </Link>
 </div>

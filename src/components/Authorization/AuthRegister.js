@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { TweenMax } from 'gsap/TweenMax'
 import '../../index.css'
+import RegImg from '../../imgs/registration.png'
 
 const initialUser = {
   username: '',
@@ -70,8 +71,11 @@ class AuthRegister extends Component {
   render() {
     return (
       <>
-        <form autoComplete="on" onSubmit={this.submitHandler} className="registerForm w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
-          <h1>Registration</h1>
+        <form autoComplete="on" onSubmit={this.submitHandler} className="bg-green-darkest w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
+          {/* <h1>Registration</h1> */}
+          <div className="flex w-full justify-center">
+          <img src={RegImg} className="self-center"alt=""/>
+          </div>
           <div className="registerText flex justify-around rounded px-8 pt-6 pb-8 mb-4">
             <div className="w-5/6">
               <div className="mb-4 w-4/5 mx-auto">
@@ -156,17 +160,18 @@ class AuthRegister extends Component {
                   onChange={this.inputHandler}
                   required
                   className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-center" />
-                <label className="text-center block font-bold mb-2" htmlFor="text">
-                  Professional? <input onChange={this.inputHandler} value={this.state.newUser.professional} className="shadow" id="professional" type="checkbox" name="professional" placeholder="Professional" />
+                <label className="self-start flex mt-2 text-white font-bold mb-2" htmlFor="text">
+                  Professional?
+                  <input onChange={this.inputHandler} value={this.state.newUser.professional} className="shadow ml-2" id="professional" type="checkbox" name="professional" placeholder="Professional" />
                 </label>
               </div>
             </div>
           </div>
           <div className="flex justify-center mb-3">
-            <button onClick={e => this.submitHandler(e)} className="registerText bg-green-dark hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button onClick={e => this.submitHandler(e)} className="registerText bg-green hover:bg-green-dark text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
               Submit
         </button>
-            <button onClick={e => this.props.clearForm(e)} className="registerText bg-grey hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button onClick={e => this.props.clearForm(e)} className="registerText bg-grey hover:bg-grey-dark text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
               Cancel
         </button>
           </div>

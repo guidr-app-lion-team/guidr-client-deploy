@@ -6,7 +6,7 @@ import AuthLogin from './Authorization/AuthLogin'
 export default function Login(props) {
   return (
     <div className="w-full max-w-xs mx-auto flex flex-col justify-center h-screen ">
-    <img className="z-10 mb-4" src={Logo} alt=""/>
+    <img className="z-10 mb-8" src={Logo} alt=""/>
     <AuthLogin {...props}/>
       <p className="text-center text-grey text-xs">
         ©{(new Date()).getFullYear()} Guidr. All rights reserved.

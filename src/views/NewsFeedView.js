@@ -12,37 +12,37 @@ export class NewsFeedView extends Component {
      this.props.getNewsFeed()
      
   }
-//   changeSelected = (ev) => {
-//     this.setState({selected: ev.target.innerText.()});
-//   };
+  changeSelected = (ev) => {
+    console.log(ev.target.innerText)
+    this.setState({selected: ev.target.innerText});
+  };
 
-//   filterCards = () => {
-//   const filtered =  this.props.adventures.filter(adventure => {
-//       if(this.state.selected === "ALL"){
-//         return this.props.adventures
-//       } 
-//       else if(this.state.selected === adventure..toUpperCase()){
-//          return card
-//       }
-//   }
-//   );
-//   return filtered
-// }
+  filterFeed = () => {
+  const filtered =  this.props.adventures.filter(adventure => {
+      if(this.state.selected === "All"){
+        return this.props.adventures
+      } 
+      else if(this.state.selected === adventure.adventure_type){
+         return adventure
+      }
+  }
+  );
+  return (filtered)
+}
   logout = () => {
     localStorage.clear();
     this.props.logOut()
     this.props.history.push('/')
   }
   render() {
-    console.log(this.props.users)
     return (
       <div>
         <NewsFeed 
-        adventures={this.props.adventures}
+        adventures={this.filterFeed()}
         users={this.props.users}
         logout={this.logout}
         user={this.props.user}
-        // changeSelected={ this.changeSelected}
+        changeSelected={ this.changeSelected}
         // feed= {this.filterCards()}
         />
       </div>
