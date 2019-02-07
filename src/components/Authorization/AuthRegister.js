@@ -70,10 +70,9 @@ class AuthRegister extends Component {
   render() {
     return (
       <>
-        <form id="registerForm" autoComplete="on" onSubmit={this.submitHandler} className="w-4/5 mx-auto bg-grey-darker shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
+        <form autoComplete="on" onSubmit={this.submitHandler} className="registerForm w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
           <h1>Registration</h1>
-          <div className="flex justify-around rounded px-8 pt-6 pb-8 mb-4">
-
+          <div className="registerText flex justify-around rounded px-8 pt-6 pb-8 mb-4">
             <div className="w-5/6">
               <div className="mb-4 w-4/5 mx-auto">
                 <input
@@ -156,18 +155,18 @@ class AuthRegister extends Component {
                   value={this.state.newUser.bio}
                   onChange={this.inputHandler}
                   required
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" />
-                <label className="text-center block text-grey-darker text-sm font-bold mb-2" htmlFor="text">
+                  className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-center" />
+                <label className="text-center block font-bold mb-2" htmlFor="text">
                   Professional? <input onChange={this.inputHandler} value={this.state.newUser.professional} className="shadow" id="professional" type="checkbox" name="professional" placeholder="Professional" />
                 </label>
               </div>
             </div>
           </div>
           <div className="flex justify-center mb-3">
-            <button onClick={e => this.submitHandler(e)} className="bg-green-dark hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button onClick={e => this.submitHandler(e)} className="registerText bg-green-dark hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
               Submit
         </button>
-            <button onClick={e => this.submitHandler(e)} className="bg-grey hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button onClick={e => this.submitHandler(e)} className="registerText bg-grey hover:bg-green-darker text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
               Cancel
         </button>
           </div>
