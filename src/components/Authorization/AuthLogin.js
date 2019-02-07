@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import axios from 'axios';
 
@@ -73,34 +74,52 @@ class AuthLogin extends Component {
 //   }
   render() {
     return (
-      <div className='login'>
-        <form onSubmit={this.submitHandler}>
-          <section>
-            <h1>Login Page</h1>
-          </section>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={this.state.user.username}
-            onChange={this.inputHandler}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={this.state.user.password}
-            onChange={this.inputHandler}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        {this.state.message
-          ? (<h4>{this.state.message}</h4>)
-          : undefined
-        }
-      </div>
+      
+         
+
+
+<form onSubmit={this.submitHandler} autoComplete="on" className="bg-white z-10 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<div className="mb-4">
+  <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
+    Username
+  </label>
+  <input 
+    type="text"
+    id="username"
+    name="username"
+    value={this.state.user.username}
+    onChange={this.inputHandler}
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+    />
+</div>
+<div className="mb-6">
+  <label className="text-left block text-grey-darker text-sm font-bold mb-2" htmlFor="password">
+    Password
+  </label>
+  <input
+   required
+   autoComplete="on"
+   type="password"
+   id="password"
+   name="password"
+   value={this.state.user.password}
+   onChange={this.inputHandler} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="******************" />
+</div>
+<div className="flex items-center justify-between">
+  <button className="bg-green-dark hover:bg-green-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+    Sign In
+  </button>
+  <Link to={"/register"} className="inline-block align-baseline font-bold text-sm text-green-dark hover:text-green-darker" href="#">
+    Need to Register?
+  </Link>
+</div>
+</form>
+
+
+
+
+
+
     )
   }
 } 
