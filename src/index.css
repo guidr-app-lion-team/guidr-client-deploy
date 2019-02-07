@@ -1,6 +1,15 @@
 .login-screen{
-  background: url('../src/imgs/Login-bg.jpg') no-repeat center center;
-  background-size: cover;
+  /* background: url('../src/imgs/Login-bg.jpg') no-repeat center center;
+  background-size: cover; */
+  background-color: rgba(96, 111, 123, 0.3); 
+}
+.login-screen video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -2;
 }
 .add-trip-bg{
   background: url('../src/imgs/addteam-bg.jpg') no-repeat center center;

@@ -1,12 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import Logo from '../imgs/mocklogo2.0.png'
+import Logo from '../imgs/logo-final.png'
+import AuthLogin from './Authorization/AuthLogin'
+
 
 export default function Login(props) {
   return (
     <div className="w-full max-w-xs mx-auto flex flex-col justify-center h-screen ">
-    <img src={Logo} alt=""/>
-      <form onSubmit={e => props.loginUserTest(e)} autoComplete="on" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <img className="z-10 mb-4" src={Logo} alt=""/>
+    <AuthLogin {...props}/>
+      <form onSubmit={e => props.loginUserTest(e)} autoComplete="on" className="bg-white z-10 shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-grey-darker text-sm font-bold mb-2 text-left" htmlFor="username">
             Username

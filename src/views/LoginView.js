@@ -6,6 +6,7 @@ import {userLogin,
         getSingleUser,
         setUser,
         getUserAdventure} from '../actions'
+import LoginVideo from '../imgs/login-vid.mp4'        
 
 export class LoginView extends Component {
   state={
@@ -27,6 +28,11 @@ export class LoginView extends Component {
   }
   componentDidMount(){
     this.props.getUsers();
+    this.startVideo()
+  }
+  startVideo(){
+    var video = document.querySelector("video");
+    // video.play()
   }
   
   handleChange = (e) => {
@@ -41,8 +47,10 @@ export class LoginView extends Component {
   }
   render() {
     return (
-      <div className="w-screen login-screen">
+      <div className="w-screen login-screen  z-20">
+      <video loop className="z-10" src={LoginVideo}> </video>
         <Login
+        {...this.props}
         loginUserTest={this.loginUserTest}
         submitLogin ={this.submitLogin}
         handleChange ={this.handleChange}

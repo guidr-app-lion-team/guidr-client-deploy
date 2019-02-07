@@ -68,7 +68,7 @@ export class RegisterView extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           clearForm={this.clearForm}
-          
+          {...this.props}
         />
       </div>
     )
