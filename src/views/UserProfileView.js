@@ -14,7 +14,7 @@ export class UserProfileView extends Component {
    }
    componentDidMount() {
     this.props.getNewsFeed()
-    this.props.getUserAdventure(this.props.user.id)
+    // this.props.getUserAdventure(this.props.user.id)
    }
   // ComponentDidUpdate() { setTimeout(this.props.getUserAdventure(this.props.user.id), 3000)  }
 
@@ -39,7 +39,9 @@ render() {
     return (
       <div>
         <UserProfile 
+        {...this.props}
         user={this.props.user}
+        users={this.props.users}
         logout={this.logout}
         isEditingProfile={this.state.isEditingProfile}
         isEditingTrip={this.state.isEditingTrip}
@@ -49,6 +51,7 @@ render() {
         userAdventures={this.props.userAdventures}
         updateAdventure={this.props.updateAdventure}
         deleteTrip={this.props.deleteTrip}
+        getUserAdventure={this.props.getUserAdventure}
         />
       </div>
     )
@@ -58,6 +61,7 @@ render() {
 const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn,
   user: state.user,
+  users: state.users,
   userAdventures: state.userAdventures
 })
 

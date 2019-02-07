@@ -90,13 +90,16 @@ class Trip extends React.Component {
       <button onClick={e => showDescription(e)} className="z-20 relative rounded-sm bg-green-dark text-white collapsible border w-full h-12">{this.props.trip.title}   -  {this.props.trip.date}  -   {this.props.trip.duration}   -  {this.props.trip.location} </button>
       <div className="hidden z-0 content">
         <div className=" border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-        {this.props.isEditingTrip ? 
+        {this.props.mainUserPage ? 
+        this.props.isEditingTrip ? 
               (<i onClick={(e) => this.submitEditedAdventure(e)} className="far fa-check-circle self-end text-xl"></i>)
               :
               (<div className="flex w-full justify-end"><i onClick={() => this.props.editingTrip()} className="self-end far fa-edit text-xl"></i>
               <i onClick={()=> this.deleteAdventure()}className="self-end far fa-trash-alt text-xl"></i> </div>
               )
+        : null
         }
+
         {this.props.isEditingTrip ? 
         (<>
         <form onSubmit={e => this.submitEditedAdventure(e)}>

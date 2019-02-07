@@ -20,7 +20,7 @@ class App extends Component {
         <Route path="/register" component={RegisterView} />
         <Route path="/newsfeed" component={NewsFeedView} />
         <Route exact path="/user" component={UserProfileView} />
-        <Route path="/user/:id" component={Friend} />
+        <Route path="/user/:id" component={UserProfileView} />
         <Route path="/addTrip" component={AddTripView} />
       </div>
     );

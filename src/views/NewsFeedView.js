@@ -25,6 +25,7 @@ export class NewsFeedView extends Component {
         adventures={this.props.adventures}
         users={this.props.users}
         logout={this.logout}
+        user={this.props.user}
         />
       </div>
     )
@@ -36,7 +37,8 @@ const mapStateToProps = (state) => ({
     adventures: state.adventures,
     error: state.error,
     users: state.users,
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    user: state.user
 })
 
 const mapDispatchToProps = {

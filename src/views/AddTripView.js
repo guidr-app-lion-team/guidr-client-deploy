@@ -31,7 +31,7 @@ clearForm = e =>{
     bio: "",
     professional: false
   })
-   this.props.history.push('/user')
+   this.props.history.push(`/user/${this.props.user.id}`)
 }
 handleChanges = e =>{
   console.log(e.target.value)
@@ -74,7 +74,7 @@ submitAdventure = e =>{
   e.preventDefault();
   this.props.addAdventure(this.state.newTrip)
   this.props.getNewsFeed();
-  this.props.isAddingAdventure ? console.log('waiting')  : this.props.history.push('/user')
+  this.props.isAddingAdventure ? console.log('waiting')  : this.props.history.push(`/user/${this.props.user.id}`)
 }
 
 

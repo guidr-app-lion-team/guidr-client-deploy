@@ -20,8 +20,6 @@ getUserFromURL = () =>{
 }
 
 render() {
-    console.log(this.state.id)
-    // this.getUserFromURL()
     return (
     <h1>{this.state.pageUser ? this.state.pageUser.username : "Sorry this user does not exist"}</h1>
     )

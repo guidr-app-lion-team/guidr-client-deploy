@@ -17,18 +17,28 @@ import TripList from './TripList'
           email: ' ',
           location: '',
           bio: '',
-        }
+        },
+        mainUserPage: false,
+        pageUser: '',
+        pageUserAdventures: [],
+        id: this.props.match.params.id,
      }
    }
+  
+    getUserFromURL = () =>{
+        const user = this.props.users.find(user => `${user.id}` === this.state.id)
+        this.setState({pageUser: user})
+        user.id === this.props.user.id ? this.setState({mainUserPage: true}) : this.setState({mainUserPage: false})
+        this.props.getUserAdventure(user.id)
+        console.log('USERADVENTURES UP', this.props.userAdventures)
+    }
+
+
    componentDidMount(){
-    this.setState({profile: {
-      name: this.props.user.name,
-      email: this.props.user.email,
-      location: this.props.user.location,
-      bio: this.props.user.bio,
-    
-    } })
+    this.getUserFromURL();
     this.randomProfileImg()
+    // console.log('PAGE USER ID', this.state.pageUser.id)
+    // this.props.getUserAdventure(this.state.pageUser.id)
   }
   randomProfileImg=() =>{
   const myPix = Array(ProImg1, ProImg2, ProImg3, ProImg4)
@@ -65,12 +75,15 @@ import TripList from './TripList'
           </div>
           <div className="w-1/2 px-4 flex items-center">
             <div className="bg-white w-4/5 rounded  p-4 flex flex-col justify-between leading-normal">
-              {this.props.isEditingProfile ? 
+            {this.state.mainUserPage ? 
+              this.props.isEditingProfile ? 
               (<i onClick={() => this.props.doneEditing()} className="far fa-check-circle self-end text-xl"></i>)
               :
               (<i onClick={() => this.props.editingPro()} className="self-end far fa-edit text-xl"></i>)
-              }
-              {this.props.isEditingProfile ? 
+              : null 
+            }
+             {this.state.mainUserPage ? 
+              this.props.isEditingProfile ? 
               (
                 <>
               <div className="flex my-2">
@@ -95,21 +108,46 @@ import TripList from './TripList'
                 <>
               <div className="flex my-2">
                 <h4 className="mr-2">Name: </h4>
-                <p>{this.state.profile.name}</p>
+                <p>{this.state.pageUser.name}</p>
               </div>
               <div className="flex my-2">
                 <h4 className="mr-2">Email: </h4>
-                <p>{this.state.profile.email}</p>
+                <p>{this.state.pageUser.email}</p>
               </div>
               <div className="flex my-2">
                 <h4 className="mr-2">Location: </h4>
-              <p>{this.state.profile.location}</p>
+              <p>{this.state.pageUser.location}</p>
               </div>
               <div className="flex my-2">
-                <h4 className="mr-2">Bio: <span className="font-normal">{this.state.profile.bio}</span></h4>
+                <h4 className="mr-2">Bio: <span className="font-normal">{this.state.pageUser.bio}</span></h4>
               </div>
               </>
-              )}
+              )
+              :
+              (
+                <>
+              <div className="flex my-2">
+                <h4 className="mr-2">Name: </h4>
+                <p>{this.state.pageUser.name}</p>
+              </div>
+              <div className="flex my-2">
+                <h4 className="mr-2">Email: </h4>
+                <p>{this.state.pageUser.email}</p>
+              </div>
+              <div className="flex my-2">
+                <h4 className="mr-2">Location: </h4>
+              <p>{this.state.pageUser.location}</p>
+              </div>
+              <div className="flex my-2">
+                <h4 className="mr-2">Bio: <span className="font-normal">{this.state.pageUser.bio}</span></h4>
+              </div>
+              </>
+              )
+
+
+            }
+             
+             
           </div>
           </div>
         </div>
@@ -117,6 +155,8 @@ import TripList from './TripList'
       </div>
       <div>
         <TripList
+        pageUser={this.state.pageUser}
+        mainUserPage={this.state.mainUserPage}
         updateAdventure={this.props.updateAdventure}
         user={this.props.user}
         userAdventures={this.props.userAdventures}

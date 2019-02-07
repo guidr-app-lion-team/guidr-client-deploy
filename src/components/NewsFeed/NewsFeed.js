@@ -9,7 +9,7 @@ export default function NewsFeed(props) {
       <header className="w-full">
         {/* NAVIGATION */}
         <nav className="w-full flex justify-end h-12 border border-blue items-center">
-          <Link className="no-underline mx-2 text-lg text-green-dark hover:text-green-darker" to={'/user'}>Profile</Link>
+          <Link className="no-underline mx-2 text-lg text-green-dark hover:text-green-darker" to={`/user/${props.user.id}`}>Profile</Link>
           {/* <span className="text-green "> | </span> */}
           <Link onClick={() => props.logout()}className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/'}>Logout</Link>
         </nav>

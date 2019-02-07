@@ -6,7 +6,7 @@ export default function TripList(props) {
   console.log(props)
   return (
     <div className="w-3/5 mx-auto">
-      <h2 className="my-4 text-center">{props.user.name}'s Adventures</h2>
+      <h2 className="my-4 text-center">{props.pageUser.name}'s Adventures</h2>
       {props.userAdventures.length === 0
       ? 
       (<>
@@ -22,6 +22,7 @@ export default function TripList(props) {
        updateAdventure={props.updateAdventure}
        trip={trip}
        deleteTrip={props.deleteTrip}
+       mainUserPage={props.mainUserPage}
        />))
     }
     </div>
