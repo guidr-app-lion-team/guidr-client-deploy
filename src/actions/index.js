@@ -166,7 +166,7 @@ export const addAdventure = (adventure) => dispatch => {
   dispatch({type: ADD_ADVENTURE_START});
   axios
   .post(`https://guidr2.herokuapp.com/adventures`, adventure)
-  .then( res => dispatch({type: ADD_ADVENTURE_SUCCESS, payload: res}))
+  .then( res => dispatch({type: ADD_ADVENTURE_SUCCESS, payload: res.data}))
   .catch(err =>  dispatch({type: ADD_ADVENTURE_FAIL, payload: err}))
 }
 

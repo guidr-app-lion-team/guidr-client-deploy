@@ -4,6 +4,7 @@ import UserProfile from '../components/UserProfile/UserProfile'
 import {logOut, 
         updateAdventure, 
         getNewsFeed,
+        getUserAdventure,
         deleteTrip} from '../actions'
 
 export class UserProfileView extends Component {
@@ -11,9 +12,11 @@ export class UserProfileView extends Component {
     isEditingProfile: false,
     isEditingTrip: false,
    }
-   componentDidUpdate() {
-    // setTimeout(this.getNewsFeed, 5000)
+   componentDidMount() {
+    this.props.getNewsFeed()
+    this.props.getUserAdventure(this.props.user.id)
    }
+  // ComponentDidUpdate() { setTimeout(this.props.getUserAdventure(this.props.user.id), 3000)  }
 
   editingPro = () =>{
      console.log("click Pro")
@@ -62,7 +65,8 @@ const mapDispatchToProps = {
   logOut,
   updateAdventure,
   deleteTrip,
-  getNewsFeed
+  getNewsFeed,
+  getUserAdventure
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileView)

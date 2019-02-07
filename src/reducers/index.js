@@ -207,11 +207,11 @@ export default (state = initialState, { type, payload }) => {
   return{
     ...state,
     adventures: [
-      ...adventures,
+      ...state.adventures,
       payload
     ],
     userAdventures: [
-      ...userAdventures,
+      ...state.userAdventures,
       payload
     ],
     isAddingAdventure: false,
