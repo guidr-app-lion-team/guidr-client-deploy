@@ -19,8 +19,8 @@ class App extends Component {
         <Route exact path="/" component={LoginView} />
         <Route path="/register" component={RegisterView} />
         <Route path="/newsfeed" component={NewsFeedView} />
-        <Route path="/friend" component={Friend} />
-        <Route path="/user" component={UserProfileView} />
+        <Route exact path="/user" component={UserProfileView} />
+        <Route path="/user/:id" component={Friend} />
         <Route path="/addTrip" component={AddTripView} />
       </div>
     );
