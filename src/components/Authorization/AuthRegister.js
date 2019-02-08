@@ -79,22 +79,28 @@ class AuthRegister extends Component {
           <div className="registerText flex justify-around rounded px-8 pt-6 pb-8 mb-4">
             <div className="w-5/6">
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Username
+              </label>
                 <input
                   type='text'
                   id='username'
                   name='username'
                   value={this.state.newUser.username}
                   onChange={this.inputHandler}
-                  placeholder="Username"
+                  placeholder="NewHiker13"
                   required
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" />
               </div>
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Email
+              </label>
                 <input
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder="NewHiker13@hotmail.com"
                   value={this.state.newUser.email}
                   onChange={this.inputHandler}
                   required
@@ -102,11 +108,14 @@ class AuthRegister extends Component {
               </div>
 
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Password
+              </label>
                 <input
                   id="password"
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder="**********"
                   value={this.state.newUser.password}
                   onChange={this.inputHandler}
                   required
@@ -114,11 +123,14 @@ class AuthRegister extends Component {
               </div>
               {/* //Here */}
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Retype Password
+              </label>
                 <input
                   id="password2"
                   type="password"
                   name="password2"
-                  placeholder="Retype Password"
+                  placeholder="**********"
                   value={this.state.newUser.password2}
                   onChange={this.inputHandler}
                   required
@@ -128,10 +140,13 @@ class AuthRegister extends Component {
 
             <div className="w-5/6">
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Full Name
+              </label>
                 <input
                   id="name"
                   name="name"
-                  placeholder="Full Name"
+                  placeholder="Yosemite Sam"
                   type='text'
                   value={this.state.newUser.name}
                   onChange={this.inputHandler}
@@ -139,10 +154,13 @@ class AuthRegister extends Component {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" />
               </div>
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Location
+              </label>
                 <input
                   id="location"
                   name="location"
-                  placeholder="Location"
+                  placeholder="Zion, Utah"
                   type='text'
                   value={this.state.newUser.location}
                   onChange={this.inputHandler}
@@ -150,17 +168,20 @@ class AuthRegister extends Component {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline text-center" />
               </div>
               <div className="mb-4 w-4/5 mx-auto">
+              <label className="block text-white text-sm font-bold mb-2 text-left" htmlFor="username">
+                Bio
+              </label>
                 <textarea
                   id="bio"
                   type="text"
                   name="bio"
-                  placeholder="Bio"
+                  placeholder="Tell us About Yourself!"
                   maxLength="400"
                   value={this.state.newUser.bio}
                   onChange={this.inputHandler}
                   required
                   className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-center" />
-                <label className="self-start flex mt-2 text-white font-bold mb-2" htmlFor="text">
+                <label className="self-start flex mt-4 text-white font-bold mb-2" htmlFor="text">
                   Professional?
                   <input onChange={this.inputHandler} value={this.state.newUser.professional} className="shadow ml-2" id="professional" type="checkbox" name="professional" placeholder="Professional" />
                 </label>
