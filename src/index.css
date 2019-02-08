@@ -50,6 +50,15 @@
   color: 'yellow';
 }
 
+
+/* TABS */
 .active{
-  background: blue;
+  background: #20504F;
 }
+.tabs:hover{
+  cursor: pointer;
+}
+
+ .h-half{
+   height: 50vh;
+ }

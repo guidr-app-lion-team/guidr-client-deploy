@@ -58,6 +58,9 @@ import TripList from './TripList'
         
     })
   }
+  toggleMain=()=>{
+    this.state.mainUserPage = true
+  }
   submitEditedProfile = e =>{
     e.preventDefault()
     this.props.doneEditing()
@@ -82,10 +85,10 @@ import TripList from './TripList'
   return (
     <>
       <div className="">
-        <nav className="w-full bg-green-dark flex justify-end h-12 border  items-center">
+        <nav className="w-full bg-green-dark flex justify-end h-12 border items-center">
           <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/newsfeed'}>AdventureFeed</Link>
           {this.state.mainUserPage ? <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/addTrip'}>Add Trip</Link> 
-          : <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={`/user/${this.props.user.id}`}>Profile</Link>}
+          : <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" onClick={()=>this.toggleMain()} to={`/user/${this.props.user.id}`}>Profile</Link>}
           
           {/* <span className="text-green "> | </span> */}
           <Link onClick={e => this.props.logout(e)} className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/'}>Logout</Link>

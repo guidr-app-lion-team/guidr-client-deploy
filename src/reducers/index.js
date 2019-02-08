@@ -41,7 +41,7 @@ const initialState = {
     isUpdating: false,
     adventures: [],
     error: null,
-    users:JSON.parse(localStorage.getItem('users')),
+    users: [],
     user: JSON.parse(localStorage.getItem('user')),
     userAdventures: [],
 }
@@ -125,12 +125,15 @@ export default (state = initialState, { type, payload }) => {
     isLoggedIn: true,
   };
   case USER_LOGIN_SUCCESS:
+  const trueUser = state.users.find(user=> user.username === payload.data.message)
+  localStorage.setItem('token', payload.data.token)
   return{
     ...state,
     error: null,
     isLoggedIn: true,
     isLoggingIn: false,
-    username: payload
+    user: trueUser
+    
   }
   case USER_LOGIN_FAIL:
   return{
@@ -139,6 +142,7 @@ export default (state = initialState, { type, payload }) => {
     isLoggedIn: false,
     isLoggingIn: false
   }
+
   case FETCH_USER_ADVENTURE_START:
   return{
     ...state,

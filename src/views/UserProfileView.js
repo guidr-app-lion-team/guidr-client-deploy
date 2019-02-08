@@ -16,10 +16,8 @@ export class UserProfileView extends Component {
    }
    componentDidMount() {
     this.props.getNewsFeed()
-    // this.props.getUserAdventure(this.props.user.id)
    }
-  // ComponentDidUpdate() { setTimeout(this.props.getUserAdventure(this.props.user.id), 3000)  }
-
+  
   editingPro = () =>{
      console.log("click Pro")
      this.setState({isEditingProfile: true }) 

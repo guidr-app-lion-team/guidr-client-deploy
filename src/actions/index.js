@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+export const TRANSITION_START ="TRANSITION_START"
+export const TRANSITION_END ="TRANSITION_END"
 
 export const FETCH_NEWSFEED_START = "FETCH_NEWSFEED_START";
 export const FETCH_NEWSFEED_SUCCESS = "FETCH_NEWSFEED_SUCCESS";
@@ -33,8 +34,6 @@ export const UPDATE_ADVENTURE_START = "UPDATE_ADVENTURE_START";
 export const UPDATE_ADVENTURE_SUCCESS = "UPDATE_ADVENTURE_SUCCESS";
 export const UPDATE_ADVENTURE_FAIL = "UPDATE_ADVENTURE_FAIL"; 
 
-
-
 export const ADD_ADVENTURE_START ="ADD_ADVENTURE_START"
 export const ADD_ADVENTURE_SUCCESS ="ADD_ADVENTURE_SUCCESS"
 export const ADD_ADVENTURE_FAIL ="ADD_ADVENTURE_FAIL"
@@ -45,23 +44,8 @@ export const DELETING_ADVENTURE_SUCCESS ="DELETING_ADVENTURE_SUCCESS"
 export const SET_USER ="SET_USER"
 export const LOGGING_OUT="LOGGING_OUT"
 
-//User Login
-export const userLogin = user => dispatch =>{
-  dispatch({type: USER_LOGIN_START});
-  axios
-  .post(`https://guidr2.herokuapp.com/login`, user)
-  .then(res => {
-    if (res.status === 200 && res.data) {
-      console.log(res)
-      // dispatch({type: USER_LOGIN_SUCCESS, payload: res.data.username});
-      // localStorage.setItem('jwt', res.data.token)
-    } else {
-      throw new Error();
-    }
-  })
-  .catch(err => console.log(err))
-  
-}
+
+
 //Get alll adventures for newsfeed 
 export const getNewsFeed = () => dispatch =>{
   dispatch({type: FETCH_NEWSFEED_START});
@@ -78,7 +62,7 @@ export const getNewsFeed = () => dispatch =>{
     .get(`https://guidr2.herokuapp.com/user`)
     .then(res => dispatch({type: FETCH_USERS_SUCCESS, payload: res.data}))
     .then(localStorage.removeItem('users'))
-    .then(res =>localStorage.setItem('users', JSON.stringify(res.payload)))
+    // .then(res =>localStorage.setItem('users', JSON.stringify(res.payload)))
     .catch(err => dispatch({type: FETCH_USERS_FAIL, payload: err}))
   }
   // Fetch single User
@@ -159,4 +143,18 @@ export const updateUser = (id, user) => dispatch =>{
   .put(`https://guidr2.herokuapp.com/user/${id}`, user)
   .then(res => dispatch({type: UPDATE_USER_SUCCESS, payload: res.data}))
   .catch(err => console.log(err))
+}
+
+
+// USER LOGIN AUTHENTICATION REDUX
+export const userLogin = (user) => dispatch =>{
+  dispatch({type: USER_LOGIN_START});
+  axios.post(`https://guidr2.herokuapp.com/login`, user)
+  .then(resp => dispatch({type: USER_LOGIN_SUCCESS, payload: resp}))
+  .catch(resp => dispatch({type: USER_LOGIN_FAIL, payload: resp}))
+}
+
+export const transition = dispatch =>{
+  dispatch({type: UPDATE_USER_START})
+  .then({type: UPDATE_USER_START})
 }

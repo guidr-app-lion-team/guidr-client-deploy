@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import axios from 'axios';
+// import {transitions} from '../../actions'
 
 const initialUser = {
   username: '',
@@ -14,7 +15,8 @@ class AuthLogin extends Component {
     this.state = {
       user: { ...initialUser },
       message: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      isLoading: false
     }
   }
 
@@ -24,6 +26,7 @@ class AuthLogin extends Component {
   }
 
   submitHandler = event => {
+    this.setState({isLoading: true})
     event.preventDefault();
     axios.post(`https://guidr2.herokuapp.com/login`, this.state.user)
     .then(resp => {
@@ -52,31 +55,14 @@ class AuthLogin extends Component {
       alert('Sorry this user is not registered, please follow this link to do so! ')
     } 
   }
-
-
-
   componentDidMount() {
     const token = localStorage.getItem('token')
     if (token) {
       this.setState({ isLoggedIn: true })
     }
   }
-
-//   login = (userInfo) => {
-//     axios.post('http://127.0.0.1:8000/api-token-auth/', userInfo)
-//       .then(resp => {
-//         localStorage.setItem('token', resp.data.token)
-//         this.setState({ isLoggedIn: true })
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       })
-//   }
   render() {
-    return (
-      
-         
-
+  return (
 
 <form onSubmit={this.submitHandler} autoComplete="on" className="bg-green-darker z-10 shadow-md rounded px-8 pt-6 pb-8 mb-4">
 <div className="mb-4">
@@ -113,16 +99,10 @@ class AuthLogin extends Component {
     Need to Register?
   </Link>
 </div>
-</form>
+</form>)
+}}
 
 
-
-
-
-
-    )
-  }
-} 
 const mapStateToProps = (state) => ({
     username: state.username,
     isLoggedIn : state.isLoggedIn,
@@ -133,7 +113,7 @@ const mapStateToProps = (state) => ({
   })
   
   const mapDispatchToProps = {
-    
+    // transitions
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(AuthLogin)

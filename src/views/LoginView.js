@@ -31,8 +31,8 @@ export class LoginView extends Component {
     this.startVideo()
   }
   startVideo(){
-    // var video = document.querySelector("video");
-    // video.play()
+    var video = document.querySelector("video");
+    video.play()
   }
   
   handleChange = (e) => {
