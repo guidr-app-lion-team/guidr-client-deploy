@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import Login from '../components/Login'
 import {userLogin,
@@ -31,7 +32,9 @@ export class LoginView extends Component {
     this.startVideo()
   }
   startVideo(){
-    var video = document.querySelector("video");
+    const container = ReactDOM.findDOMNode(this);
+    const video = container.querySelector('video')
+    video.autoplay = true;
     video.play()
   }
   
@@ -48,7 +51,7 @@ export class LoginView extends Component {
   render() {
     return (
       <div className="w-screen login-screen  z-20">
-      <video loop className="z-10" src={LoginVideo}> </video>
+        <video loop className="z-10 video" src={LoginVideo}> </video>
         <Login
         {...this.props}
         loginUserTest={this.loginUserTest}
