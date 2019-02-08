@@ -86,16 +86,16 @@ class Trip extends React.Component {
 
   render() {
     return (
-      <div className="w-full ">
-        <button onClick={e => showDescription(e)} className="z-20 relative rounded-sm bg-green-dark text-white collapsible border w-full h-12">{this.props.trip.title}   -  {this.props.trip.date}  -   {this.props.trip.duration}   -  {this.props.trip.location} </button>
+      <div className="w-full">
+        <button onClick={e => showDescription(e)} className="header-font z-20 relative rounded-sm bg-green-darker text-white collapsible border w-full h-12">{this.props.trip.title}   -  {this.props.trip.date}  -   {this.props.trip.duration}   -  {this.props.trip.location} </button>
         <div className="hidden z-0 content">
-          <div className=" border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+          <div className=" border-r border-b border-l border-grey-light lg:border-l-0 lg:border-tlg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
             {this.props.mainUserPage ?
               this.props.isEditingTrip ?
-                (<i onClick={(e) => this.submitEditedAdventure(e)} className="far fa-check-circle self-end text-xl"></i>)
+                (<i onClick={(e) => this.submitEditedAdventure(e)} className="far mr-2 mb-2 fa-check-circle self-end text-xl hover:text-green"></i>)
                 :
-                (<div className="flex w-full justify-end"><i onClick={() => this.props.editingTrip()} className="self-end far fa-edit text-xl"></i>
-                  <i onClick={() => this.deleteAdventure()} className="self-end far fa-trash-alt text-xl"></i> </div>
+                (<div className="flex w-full justify-end"><i onClick={() => this.props.editingTrip()} className="mr-2 hover:text-purple self-end far fa-edit text-xl"></i>
+                  <i onClick={() => this.deleteAdventure()} className="self-end far fa-trash-alt text-xl hover:text-red"></i> </div>
                 )
               : null
             }
@@ -104,61 +104,61 @@ class Trip extends React.Component {
               (<>
                 <form onSubmit={e => this.submitEditedAdventure(e)}>
                   <div className="flex">
-                    <h4 className="mr-2">Title: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <h4 className="mr-2 header-font">Title: </h4>
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Location: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" value={this.state.trip.location} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <h4 className="mr-2 header-font">Location: </h4>
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" value={this.state.trip.location} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Duration: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" value={this.state.trip.duration} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <h4 className="mr-2 header-font">Duration: </h4>
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" value={this.state.trip.duration} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Type of Trip: </h4>
-                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Back Packing" /><label className="ml-2 ">Back Packing</label></div>
-                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Hiking" /><label className="ml-2">Hiking</label></div>
-                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Cycling" /><label className="ml-2">Cycling</label></div>
-                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Climbing" /><label className="ml-2">Climbing</label></div>
-                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Diving" /><label className="ml-2">Diving</label></div>
+                    <h4 className="mr-2 header-font">Type of Trip: </h4>
+                    <div className="mb-1 "><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Back Packing" /><label className="ml-2 text-font ">Back Packing</label></div>
+                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Hiking" /><label className="ml-2 text-font">Hiking</label></div>
+                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Cycling" /><label className="ml-2 text-font">Cycling</label></div>
+                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Climbing" /><label className="ml-2 text-font ">Climbing</label></div>
+                    <div className="mb-1"><input onChange={e => this.handleChanges(e)} type="radio" name="adventure_type" value="Diving" /><label className="ml-2 text-font">Diving</label></div>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Professional or Pleasure: </h4>
+                    <h4 className="mr-2 text-font header-font">Professional or Pleasure: </h4>
                     <div>
-                      <input className="mr-2" type="radio" name="professional" value="professional" onChange={e => this.handleChanges(e)} /> <label>Professional</label><br />
-                      <input className="mr-2" type="radio" name="professional" value="personal" onChange={e => this.handleChanges(e)} /> <label>Pleasure</label>
+                      <input className="mr-2 text-font" type="radio" name="professional" value="professional" onChange={e => this.handleChanges(e)} /> <label>Professional</label><br />
+                      <input className="mr-2 text-font" type="radio" name="professional" value="personal" onChange={e => this.handleChanges(e)} /> <label>Pleasure</label>
                     </div>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Notes: <textarea rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
+                    <h4 className="mr-2 header-font">Notes: <textarea cols="100" rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
                   </div>
                 </form>
               </>)
               : (
                 <>
                   <div className="flex">
-                    <h4 className="mr-2">Title: </h4>
-                    <p> {this.state.trip.title}</p>
+                    <h4 className="mr-2 header-font">Title: </h4>
+                    <p className="text-font"> {this.state.trip.title}</p>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Location: </h4>
-                    <p> {this.state.trip.location}</p>
+                    <h4 className="mr-2 header-font">Location: </h4>
+                    <p className="text-font"> {this.state.trip.location}</p>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Duration: </h4>
-                    <p> {this.state.trip.duration}</p>
+                    <h4 className="mr-2 header-font">Duration: </h4>
+                    <p className="text-font"> {this.state.trip.duration}</p>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Type of Trip: </h4>
-                    <p> {this.state.trip.adventure_type}</p>
+                    <h4 className="mr-2 header-font">Type of Trip: </h4>
+                    <p className="text-font"> {this.state.trip.adventure_type}</p>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Professional or Pleasure: </h4>
-                    <p> {this.state.trip.professional ? "Professional" : "Pleasure"}</p>
+                    <h4 className="mr-2 header-font">Professional or Pleasure: </h4>
+                    <p className="text-font"> {this.state.trip.professional ? "Professional" : "Pleasure"}</p>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2">Notes: <span className="font-normal">{this.state.trip.description}</span></h4>
+                    <h4 className="mr-2 header-font">Notes: <span className="text-font font-normal">{this.state.trip.description}</span></h4>
                   </div>
                 </>)
             }

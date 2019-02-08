@@ -85,13 +85,13 @@ import TripList from './TripList'
   return (
     <>
       <div className="">
-        <nav className="w-full bg-green-dark flex justify-end h-12 border items-center">
-          <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/newsfeed'}>AdventureFeed</Link>
-          {this.state.mainUserPage ? <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" to={'/addTrip'}>Add Trip</Link> 
-          : <Link className="no-underline mx-2 text-lg text-white hover:text-green-darker" onClick={()=>this.toggleMain()} to={`/user/${this.props.user.id}`}>Profile</Link>}
+        <nav className="w-full flex justify-end h-16 bg-green-darker items-center header-font">
+          <Link className="no-underline mx-2 text-lg text-white hover:underline hover:text-grey-light" to={'/newsfeed'}>AdventureFeed</Link>
+          {this.state.mainUserPage ? <Link className="no-underline mx-2 text-lg text-white hover:underline hover:text-grey-light" to={'/addTrip'}>Add Trip</Link> 
+          : <Link className="no-underline mx-2 text-lg text-white hover:underline hover:text-grey-light" onClick={()=>this.toggleMain()} to={`/user/${this.props.user.id}`}>Profile</Link>}
           
           {/* <span className="text-green "> | </span> */}
-          <Link onClick={e => this.props.logout(e)} className="no-underline mx-4 text-lg text-red hover:text-red-darker" to={'/'}>Logout</Link>
+          <Link onClick={e => this.props.logout(e)}className="no-underline mx-4 text-lg text-red hover:text-red-dark hover:underline"  to={'/'}>Logout</Link>
         </nav>
         <div className="flex h-pro-header items-center">
           <div className="w-1/2 flex px-4 flex-col justify-center items-center h-pro-image">
@@ -101,9 +101,9 @@ import TripList from './TripList'
             <div className="bg-white w-4/5 rounded  p-4 flex flex-col justify-between leading-normal">
             {this.state.mainUserPage ? 
               this.props.isEditingProfile ? 
-              (<i onClick={e => this.submitEditedProfile(e)} className="far fa-check-circle self-end text-xl"></i>)
+              (<i onClick={e => this.submitEditedProfile(e)} className="far fa-check-circle mb-2 self-end text-xl hover:text-green"></i>)
               :
-              (<i onClick={() => this.props.editingPro()} className="self-end far fa-edit text-xl"></i>)
+              (<i onClick={() => this.props.editingPro()} className="self-end far fa-edit text-xl hover:text-purple"></i>)
               : null 
             }
              {this.state.mainUserPage ? 
@@ -123,7 +123,7 @@ import TripList from './TripList'
                 <input onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" placeholder="Not Here" value={this.state.pageUser.location}/>
               </div>
               <div className="flex my-2">
-                <h4 className="mr-2">Bio: <textarea rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" value={this.state.pageUser.bio} name="bio" spellCheck='true' placeholder="John Doe, he's a really cool dancer" /></h4>
+                <h4 className="mr-2">Bio: <textarea rows="4" cols="100" onChange={e => this.handleChanges(e)} className="w-full shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" value={this.state.pageUser.bio} name="bio" spellCheck='true' placeholder="John Doe, he's a really cool dancer" /></h4>
               </div>
               </>
               )              
@@ -131,19 +131,19 @@ import TripList from './TripList'
               (
                 <>
               <div className="flex my-2">
-                <h4 className="mr-2">Name: </h4>
-                <p>{this.state.pageUser.name}</p>
+                <h4 className="mr-2 header-font">Name: </h4>
+                <p className="text-font">{this.state.pageUser.name}</p>
               </div>
               <div className="flex my-2">
-                <h4 className="mr-2">Email: </h4>
-                <p>{this.state.pageUser.email}</p>
+                <h4 className="mr-2 header-font">Email: </h4>
+                <p className="text-font">{this.state.pageUser.email}</p>
               </div>
               <div className="flex my-2">
-                <h4 className="mr-2">Location: </h4>
-              <p>{this.state.pageUser.location}</p>
+                <h4 className="mr-2 header-font">Location: </h4>
+              <p className="text-font">{this.state.pageUser.location}</p>
               </div>
               <div className="flex my-2">
-                <h4 className="mr-2">Bio: <span className="font-normal">{this.state.pageUser.bio}</span></h4>
+                <h4 className="mr-2 header-font">Bio: <span className="font-normal text-font">{this.state.pageUser.bio}</span></h4>
               </div>
               </>
               )
