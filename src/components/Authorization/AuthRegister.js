@@ -71,7 +71,7 @@ class AuthRegister extends Component {
   render() {
     return (
       <>
-        <form autoComplete="on" onSubmit={this.submitHandler} className="bg-green-darkest w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
+        <form autoComplete="on" onSubmit={this.submitHandler} className="  bg-green-darkest w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
           {/* <h1>Registration</h1> */}
           <div className="flex w-full justify-center">
           <img src={RegImg} className="self-center"alt=""/>

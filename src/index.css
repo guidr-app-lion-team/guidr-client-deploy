@@ -45,9 +45,8 @@
   /* background-image: linear-gradient(45deg, #1f9d55 10%, #1a4731 40%, #1f9d55 90%); */
 }
 .registerText{
-  font-family: 'Amatic SC';
+  font-family: 'Montserrat', sans-serif;
   font-size: '1.5rem';
-  color: 'yellow';
 }
 
 
@@ -58,7 +57,13 @@
 .tabs:hover{
   cursor: pointer;
 }
-
  .h-half{
    height: 50vh;
+ }
+
+ .header-font{
+  font-family: 'Assistant', sans-serif;
+ }
+ .text-font{
+  font-family: 'Montserrat', sans-serif;
  }

@@ -62,7 +62,7 @@ export const getNewsFeed = () => dispatch =>{
     .get(`https://guidr2.herokuapp.com/user`)
     .then(res => dispatch({type: FETCH_USERS_SUCCESS, payload: res.data}))
     .then(localStorage.removeItem('users'))
-    // .then(res =>localStorage.setItem('users', JSON.stringify(res.payload)))
+    .then(res =>localStorage.setItem('users', JSON.stringify(res.payload)))
     .catch(err => dispatch({type: FETCH_USERS_FAIL, payload: err}))
   }
   // Fetch single User

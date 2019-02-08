@@ -26,7 +26,9 @@ import {
   DELETING_ADVENTURE_SUCCESS,
   ADD_ADVENTURE_FAIL,
   ADD_ADVENTURE_START,
-  ADD_ADVENTURE_SUCCESS
+  ADD_ADVENTURE_SUCCESS,
+  TRANSITION_START,
+  TRANSITION_END
 } from '../actions'
 
 
@@ -41,9 +43,9 @@ const initialState = {
     isUpdating: false,
     adventures: [],
     error: null,
-    users: [],
+    users: JSON.parse(localStorage.getItem('users')),
     user: JSON.parse(localStorage.getItem('user')),
-    userAdventures: [],
+    userAdventures: JSON.parse(localStorage.getItem('userAdventures')),
 }
 
 export default (state = initialState, { type, payload }) => {
