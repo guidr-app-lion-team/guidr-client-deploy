@@ -64,7 +64,7 @@ import TripList from './TripList'
   submitEditedProfile = e =>{
     e.preventDefault()
     this.props.doneEditing()
-    this.props.updateUser(this.state.pageUser.id, this.state.pageUser);
+    this.props.updateUser(this.props.user.id, this.state.pageUser);
     this.props.getUserAdventure(this.state.pageUser.id)
     // this.props.getUsers()
     // this.getUserFromURL();

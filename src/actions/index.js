@@ -142,7 +142,7 @@ export const updateUser = (id, user) => dispatch =>{
   axios
   .put(`https://guidr2.herokuapp.com/user/${id}`, user)
   .then(res => dispatch({type: UPDATE_USER_SUCCESS, payload: res.data}))
-  .catch(err => console.log(err))
+  .catch(err => dispatch({type: UPDATE_USER_FAIL, payload: err}))
 }
 
 
