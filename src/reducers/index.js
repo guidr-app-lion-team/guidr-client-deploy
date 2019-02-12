@@ -88,11 +88,13 @@ export default (state = initialState, { type, payload }) => {
     error: null 
   };
   case FETCH_USERS_SUCCESS:
+  const loadedUsers = payload.map(user=> {return {name: user.name, username: user.username, id: user.id, location: user.location, bio: user.bio, professional: user.professional, email: user.email}});
+  localStorage.setItem('users', JSON.stringify(loadedUsers))
   return{
     ...state,
     error: null,
     isFetchingUsers: false,
-    users: payload
+    users: loadedUsers,
   };
   case FETCH_USERS_FAIL:
   return{
