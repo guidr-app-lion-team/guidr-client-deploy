@@ -71,7 +71,7 @@ class AuthRegister extends Component {
   render() {
     return (
       <>
-        <form autoComplete="on" onSubmit={this.submitHandler} className="  bg-green-darkest w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
+        <form autoComplete="on" onSubmit={this.submitHandler} className="  bg-green-900 w-4/5 mx-auto shadow-md px-8 pt-6 mb-4 rounded-lg hidden">
           {/* <h1>Registration</h1> */}
           <div className="flex w-full justify-center">
           <img src={RegImg} className="self-center"alt=""/>
@@ -189,10 +189,10 @@ class AuthRegister extends Component {
             </div>
           </div>
           <div className="flex justify-center mb-3">
-            <button onClick={e => this.submitHandler(e)} className="registerText bg-green hover:bg-green-dark text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button onClick={e => this.submitHandler(e)} className="registerText bg-green-500 hover:bg-green-700 text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
               Submit
         </button>
-            <button onClick={e => this.props.clearForm(e)} className="registerText bg-grey hover:bg-grey-dark text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button onClick={e => this.props.clearForm(e)} className="registerText bg-gray-600 hover:bg-gray-700 text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
               Cancel
         </button>
           </div>

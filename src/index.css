@@ -11,6 +11,7 @@
   min-height: 100%;
   z-index: -2;
 }
+
 .add-trip-bg{
   background: url('../src/imgs/addteam-bg.jpg') no-repeat center center;
   background-size: cover;
