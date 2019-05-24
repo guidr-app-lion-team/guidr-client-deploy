@@ -87,15 +87,15 @@ class Trip extends React.Component {
   render() {
     return (
       <div className="w-full">
-        <button onClick={e => showDescription(e)} className="header-font z-20 relative rounded-sm bg-green-darker text-white collapsible border w-full h-12">{this.props.trip.title}   -  {this.props.trip.date}  -   {this.props.trip.duration}   -  {this.props.trip.location} </button>
+        <button onClick={e => showDescription(e)} className="header-font z-20 relative rounded-sm bg-green-600 text-white collapsible border w-full h-12">{this.props.trip.title}   -  {this.props.trip.date}  -   {this.props.trip.duration}   -  {this.props.trip.location} </button>
         <div className="hidden z-0 content">
-          <div className=" border-r border-b border-l border-grey-light lg:border-l-0 lg:border-tlg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+          <div className=" border-r border-b border-l border-gray-300 lg:border-l-0 lg:border-tlg:border-gray-300 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
             {this.props.mainUserPage ?
               this.props.isEditingTrip ?
-                (<i onClick={(e) => this.submitEditedAdventure(e)} className="far mr-2 mb-2 fa-check-circle self-end text-xl hover:text-green"></i>)
+                (<i onClick={(e) => this.submitEditedAdventure(e)} className="far mr-2 mb-2 fa-check-circle self-end text-xl hover:text-green-500"></i>)
                 :
-                (<div className="flex w-full justify-end"><i onClick={() => this.props.editingTrip()} className="mr-2 hover:text-purple self-end far fa-edit text-xl"></i>
-                  <i onClick={() => this.deleteAdventure()} className="self-end far fa-trash-alt text-xl hover:text-red"></i> </div>
+                (<div className="flex w-full justify-end"><i onClick={() => this.props.editingTrip()} className="mr-2 hover:text-purple-500 self-end far fa-edit text-xl"></i>
+                  <i onClick={() => this.deleteAdventure()} className="self-end far fa-trash-alt text-xl hover:text-red-500"></i> </div>
                 )
               : null
             }
@@ -105,15 +105,15 @@ class Trip extends React.Component {
                 <form onSubmit={e => this.submitEditedAdventure(e)}>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Title: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Location: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" value={this.state.trip.location} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" value={this.state.trip.location} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Duration: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" value={this.state.trip.duration} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" value={this.state.trip.duration} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Type of Trip: </h4>
@@ -131,7 +131,7 @@ class Trip extends React.Component {
                     </div>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2 header-font">Notes: <textarea cols="100" rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
+                    <h4 className="mr-2 header-font">Notes: <textarea cols="100" rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
                   </div>
                 </form>
               </>)

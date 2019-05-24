@@ -11,7 +11,7 @@ export default function TripList(props) {
       ? 
       (<div className="text-center w-full mx-auto">
         <h3 className="mb-8 header-font ">Uh oh Looks like you have no Adventures!</h3>
-        <Link to={"/addTrip"} className="text-font bg-green hover:bg-green-dark text-white font-bold py-4 px-8 rounded mt-4" > Add some here! </Link>
+        <Link to={"/addTrip"} className="text-font bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-8 rounded mt-4" > Add some here! </Link>
       </div>
       )
       : (props.userAdventures.map(trip =>  
