@@ -105,15 +105,15 @@ class Trip extends React.Component {
                 <form onSubmit={e => this.submitEditedAdventure(e)}>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Title: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700git leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="title" value={this.state.trip.title} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Location: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" value={this.state.trip.location} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700git leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="location" value={this.state.trip.location} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Duration: </h4>
-                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" value={this.state.trip.duration} placeholder="Name Your Trip ex. Two Day Hike" />
+                    <input onChange={e => this.handleChanges(e)} className="text-font shadow appearance-none border rounded w-full py-2 px-3 text-gray-700git leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="duration" value={this.state.trip.duration} placeholder="Name Your Trip ex. Two Day Hike" />
                   </div>
                   <div className="flex">
                     <h4 className="mr-2 header-font">Type of Trip: </h4>
@@ -131,7 +131,7 @@ class Trip extends React.Component {
                     </div>
                   </div>
                   <div className="flex">
-                    <h4 className="mr-2 header-font">Notes: <textarea cols="100" rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
+                    <h4 className="mr-2 header-font">Notes: <textarea cols="100" rows="4" onChange={e => this.handleChanges(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700git leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="description" value={this.state.trip.description} spellCheck='true' placeholder="Tell Us About You" /></h4>
                   </div>
                 </form>
               </>)
